@@ -1,0 +1,143 @@
+@charset "UTF-8";
+@namespace "http://www.w3.org/1999/xhtml";
+@namespace epub "http://www.idpf.org/2007/ops";
+
+html {
+  -epub-writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+body {
+  font-family: serif, sans-serif;
+  word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.9em;
+}
+
+h6 {
+  font-size: 0.8em;
+}
+
+p {
+  line-height: 1.6;
+}
+
+p, li, dt, dd {
+  line-height: 1.6;
+}
+
+b, strong, dt, caption, figcaption, th {
+  font-family: sans-serif;
+}
+
+blockquote, ul, fieldset, form, ol, dl, menu {
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  padding: 0;
+}
+
+blockquote blockquote, blockquote ol, blockquote ul, blockquote dl,
+ol blockquote, ol ol, ol ul, ol dl,
+ul blockquote, ul ol, ul ul, ul dl,
+dl blockquote, dl ol, dl ul, dl dl {
+  margin-right: 0em;
+  margin-left: 0em;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+rt {
+  font-family: serif, sans-serif;
+}
+
+.tcy {
+  -epub-text-combine: horizontal;
+  -webkit-text-combine: horizontal;
+  -ms-text-combine-horizontal: all;
+  text-combine-horizontal: all;
+  text-combine-upright: all;
+}
+
+.sideways {
+  -epub-text-orientation: sideways;
+  text-orientation: sideways;
+}
+
+.upright {
+  -epub-text-orientation: rotate-right;
+  -epub-text-orientation: upright;
+  -webkit-text-orientation: upright;
+  -epub-text-combine: horizontal;
+  -webkit-text-combine: horizontal;
+  text-combine-horizontal: all;
+  text-combine-upright: all;
+}
+
+blockquote {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+p {
+  margin: 0;
+}
+
+em {
+  font-style: normal;
+  -epub-text-emphasis-style: filled sesame;
+  text-emphasis-style: filled sesame;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.text-justify {
+    text-align: justify;
+}
+.text-pre-wrap {
+    white-space: pre-wrap;
+}
