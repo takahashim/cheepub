@@ -29,6 +29,7 @@ module Cheepub
         book.creator = params[:author]
         book.language = params[:language] || 'ja'
         book.version = '3.0'
+        book.publisher = params[:publisher]
         File.open(File.join(File.dirname(__FILE__), "templates/style.css.erb")) do |f|
           item = book.add_item("style.css")
           item.add_content(f)
