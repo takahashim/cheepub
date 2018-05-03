@@ -1,4 +1,5 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "cheepub"
 
-require "minitest/autorun"
+require "test/unit"
+require "test/unit/notify"
