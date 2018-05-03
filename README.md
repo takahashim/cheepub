@@ -1,8 +1,8 @@
 # Cheepub
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cheepub`. To experiment with that code, run `bin/console` for an interactive prompt.
+Cheepub is EPUB generator from Markdown.
 
-TODO: Delete this and the text above, and describe your gem
+Cheepub uses [Kramdown](https://github.com/gettalong/kramdown) and [Gepub](https://github.com/skoji/gepub).
 
 ## Installation
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```sh
+$ cheepub source.md
+```
 
 ## Development
 
