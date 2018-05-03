@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="<%= @converter.options[:lang] %>" lang="<%= @converter.options[:lang] %>">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="<%= @converter.options[:cssfile] %>" type="text/css" />
+    <title><%= @converter.options[:title] %></title>
+    <meta name="generator" content="<%= @converter.options[:generator] %>" />
+  </head>
+  <body class="bodymatter" epub:type="bodymatter">
+    <%= @body %>  </body>
+</html>
