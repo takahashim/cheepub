@@ -2,7 +2,6 @@ require "test_helper"
 require "cheepub"
 
 class MarkdwnTest < Test::Unit::TestCase
-
   def test_convert
     md = Cheepub::Markdown.new("foo*bar*buz")
     expected = <<-EOB
@@ -32,7 +31,6 @@ EOB
     para = $1
     assert_equal(expected, para)
   end
-
 
   def test_convert_tcy
     md = Cheepub::Markdown.new("平成^30^年^!?^\n")
