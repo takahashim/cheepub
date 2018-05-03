@@ -11,7 +11,8 @@ module Cheepub
                         lang: "ja",
                         title: "EPUB sample",
                         cssfile: "style.css",
-                        generator: "Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}"
+                        generator: "Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}",
+                        input: "GFM",
                        }
       @params = default_params.merge(params)
       @text = text
