@@ -7,3 +7,8 @@
 /spec/reports/
 /tmp/
 Gemfile.lock
+
+## ignore
+\#*#
+*~
+*.bak
