@@ -15,11 +15,12 @@ module Cheepub
                         title: "EPUB sample",
                         cssfile: "style.css",
                         generator: "Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}",
-                        input: "GFM",
+                        input: "CheeMarkdown",
                        }
       @params = default_params.merge(params)
       @text = text
-      @filters = [:ruby_filter, :tcy_filter]
+##      @filters = [:ruby_filter, :tcy_filter]
+      @filters = [:tcy_filter]
     end
 
     def convert
@@ -38,7 +39,7 @@ module Cheepub
     def ruby_filter(text)
       text.lines.map do |line|
         line.gsub(RUBY_PATTERN) do
-          "<ruby><rb>#{$1}</rb><rp>（</rp><rt>#{$2}</rt><rp>）</rp></ruby>"
+          "<ruby>#{$1}<rt>#{$2}</rt></ruby>"
         end
       end.join("")
     end

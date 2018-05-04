@@ -25,7 +25,7 @@ EOB
 
   def test_convert_ruby
     md = Cheepub::Markdown.new("この問題は{今度|こんど}の{試験|テスト}に出る。\n")
-    expected = "この問題は<ruby><rb>今度</rb><rp>（</rp><rt>こんど</rt><rp>）</rp></ruby>の<ruby><rb>試験</rb><rp>（</rp><rt>テスト</rt><rp>）</rp></ruby>に出る。"
+    expected = "この問題は<ruby>今度<rt>こんど</rt></ruby>の<ruby>試験<rt>テスト</rt></ruby>に出る。"
     result = md.convert
     result =~ /<p>(.*)<\/p>/
     para = $1
