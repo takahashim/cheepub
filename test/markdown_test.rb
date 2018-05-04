@@ -41,6 +41,15 @@ EOB
     assert_equal(expected, para)
   end
 
+  def test_convert_centering
+    md = Cheepub::Markdown.new("{: class=\"centering\"}\nこの行はセンタリングするはずです\n\nこの行はセンタリングしません。\n")
+    expected = %Q{    <p class="centering">この行はセンタリングするはずです</p>\n\n<p>この行はセンタリングしません。</p>\n}
+    result = md.convert
+    result =~ /<body[^>]+>\n(.*)  +<\/body>/m
+    para = $1
+    assert_equal(expected, para)
+  end
+
   def test_convert_footnote
     md = Cheepub::Markdown.new("テスト[^1]です。\n\n[^1]: テストの脚注です。\n")
     expected = <<-EOB
