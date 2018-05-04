@@ -19,37 +19,10 @@ module Cheepub
                        }
       @params = default_params.merge(params)
       @text = text
-##      @filters = [:ruby_filter, :tcy_filter]
-      @filters = [:tcy_filter]
     end
 
     def convert
-      text = execute_before_filter(@text)
-      Kramdown::Document.new(text, @params).to_html
-    end
-
-    def execute_before_filter(text)
-      content = text
-      @filters.each do |filter|
-        content = self.send(filter, content)
-      end
-      content
-    end
-
-    def ruby_filter(text)
-      text.lines.map do |line|
-        line.gsub(RUBY_PATTERN) do
-          "<ruby>#{$1}<rt>#{$2}</rt></ruby>"
-        end
-      end.join("")
-    end
-
-    def tcy_filter(text)
-      text.lines.map do |line|
-        line.gsub(TCY_PATTERN) do
-          "<span class=\"tcy\">#{$1}</span>"
-        end
-      end.join("")
+      Kramdown::Document.new(@text, @params).to_html
     end
 
     alias_method :to_html, :convert
