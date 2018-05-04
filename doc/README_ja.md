@@ -35,7 +35,8 @@ $ cheepub sample.md
 
 基本方針は3つです。
 
-* 「[でんでんマークダウン](https://conv.denshochan.com/markdown)みたいなやつ」が目標
+* 「（コマンドラインで使える）[でんでんマークダウン](https://conv.denshochan.com/markdown)みたいなやつ」が目標
+    * 「簡単にEPUBが作りたい」（ただしコマンドラインで）という人向けツールです
 * あまり頑張らない
     * 「でんでんマークダウン完全互換」とかは大変そうなので、簡単に実装できる範囲でやる
     * kramdownをベースにするので、でんでんマークダウンになくてもkramdownにある記法等は動くことはあるかも
@@ -63,4 +64,8 @@ $ cheepub sample.md
 ### ルビ
 
 これは[でんでんマークダウンのルビ](https://conv.denshochan.com/markdown#tcy)の縮小版です。グループルビだけ対応しています。
+
+### パラグラフへのclass属性の指定
+
+これは[kramdownの拡張機能](https://kramdown.gettalong.org/syntax.html)で、`{: .foo}`のような行を追加すると`<p>...</p>`要素にclass属性を追加できます。
 

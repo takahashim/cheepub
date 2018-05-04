@@ -42,7 +42,7 @@ EOB
   end
 
   def test_convert_centering
-    md = Cheepub::Markdown.new("{: class=\"centering\"}\nこの行はセンタリングするはずです\n\nこの行はセンタリングしません。\n")
+    md = Cheepub::Markdown.new("{: .centering}\nこの行はセンタリングするはずです\n\nこの行はセンタリングしません。\n")
     expected = %Q{    <p class="centering">この行はセンタリングするはずです</p>\n\n<p>この行はセンタリングしません。</p>\n}
     result = md.convert
     result =~ /<body[^>]+>\n(.*)  +<\/body>/m
