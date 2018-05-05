@@ -79,4 +79,16 @@ EOB
     assert_equal expected_head, head
     assert_equal expected_body, body
   end
+
+  def test_parse_creator
+    creator = {aut: "foo", cov: "bar"}
+    gen = Cheepub::Generator.new("")
+    book = GEPUB::Book.new
+    gen.parse_creator(book, creator)
+    list = book.creator_list
+    assert_equal :aut, list[0].role.content
+    assert_equal "foo", list[0].content
+    assert_equal :cov, list[1].role.content
+    assert_equal "bar", list[1].content
+  end
 end

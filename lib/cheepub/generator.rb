@@ -8,6 +8,7 @@ module Cheepub
 
     SEPARATOR_PATTERN = /\n\n(?:\={3,}|\-{6,})\s*\n\n/m
     FRONTMATTER_PATTERN = /\A---$(.*?)^---\n/m
+    ROLES = %i{aut edt trl ill cov cre pht cwt nrt}
 
     def initialize(src, params = Hash.new)
       @src = src
@@ -29,6 +30,9 @@ module Cheepub
       gbook = GEPUB::Book.new do |book|
         book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
         book.title = params[:title]
+        if params[:creator]
+          parse_creator(book, params[:creator])
+        end
         book.creator = params[:author]
         book.language = params[:language] || 'ja'
         book.version = '3.0'
@@ -77,6 +81,19 @@ module Cheepub
         end
       end
       pages
+    end
+
+    def parse_creator(book, creator)
+      if creator.kind_of? String
+        book.add_creator(creator)
+      else
+        creator.each do |role, name|
+          if !ROLES.include?(role)
+            raise Cheepub::Error, "invalid role: '#{role}' for creator '#{name}'."
+          end
+          book.add_creator(name, nil, role)
+        end
+      end
     end
   end
 end
