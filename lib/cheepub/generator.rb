@@ -1,5 +1,4 @@
 require 'securerandom'
-require 'yaml'
 require 'gepub'
 
 module Cheepub

@@ -1,3 +1,5 @@
+require 'yaml'
+
 module Cheepub
   class Content
     using Cheepub::ExtHash
