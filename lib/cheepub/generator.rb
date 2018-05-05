@@ -35,6 +35,10 @@ module Cheepub
         book.publisher = params[:publisher]
         ## book.date= params[:date] || Time.now
         book.add_date(params[:date] || Time.now, nil)
+        book.lastmodified = params[:lastModified] || Time.now
+        if params[:pageDirection]
+          book.page_progression_direction = params[:pageDirection]
+        end
         File.open(File.join(File.dirname(__FILE__), "templates/style.css.erb")) do |f|
           item = book.add_item("style.css")
           item.add_content(f)
