@@ -4,26 +4,22 @@ require 'gepub'
 
 module Cheepub
   class Generator
-    using Cheepub::ExtHash
 
-    SEPARATOR_PATTERN = /\n\n(?:\={3,}|\-{6,})\s*\n\n/m
-    FRONTMATTER_PATTERN = /\A---$(.*?)^---\n/m
     ROLES = %i{aut edt trl ill cov cre pht cwt nrt}
 
     def initialize(src, params = Hash.new)
-      @src = src
+      if src.kind_of? Cheepub::Content
+        @src = nil
+        @content = src
+      else
+        @src = src
+        @content = Cheepub::Content.new(File.read(@src))
+      end
       @params = params
     end
 
     def execute
-      content = File.read(@src)
-      head, body = parse_frontmatter(content)
-      pages = separate_pages(body)
-      html_pages = pages.map do |page|
-        md = Cheepub::Markdown.new(page)
-        md.convert
-      end
-      params = @params.merge(head)
+      params = @params.merge(@content.header)
       if !params[:author] || !params[:title]
         raise Cheepub::Error, "author and title should be defined."
       end
@@ -48,7 +44,7 @@ module Cheepub
           item.add_content(f)
         end
         book.ordered do
-          html_pages.each_with_index do |page, idx|
+          @content.html_pages.each_with_index do |page, idx|
             item = book.add_item("bodymatter_0_#{idx}.xhtml")
             item.add_content(StringIO.new(page))
           end
@@ -56,31 +52,6 @@ module Cheepub
       end
       epubname = params[:epubname] || "book.epub"
       gbook.generate_epub(epubname)
-    end
-
-    def parse_frontmatter(src)
-      head = body = nil
-      if src =~ FRONTMATTER_PATTERN
-        head, body = YAML.safe_load($1).symbolize_keys!, $'
-      else
-        head, body = Hash.new(), src
-      end
-      return head, body
-    end
-
-    def separate_pages(body)
-      pages = nil
-      if body =~ SEPARATOR_PATTERN
-        pages = body.split(SEPARATOR_PATTERN)
-      else
-        pages = [body]
-      end
-      pages.each_with_index do |page, idx|
-        if idx < pages.size - 1
-          page.concat("\n")
-        end
-      end
-      pages
     end
 
     def parse_creator(book, creator)
