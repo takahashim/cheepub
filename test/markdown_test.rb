@@ -12,7 +12,7 @@ class MarkdwnTest < Test::Unit::TestCase
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <title>EPUB sample</title>
-    <meta name="generator" content="Cheepub 0.1.0 with kramdown 1.16.2" />
+    <meta name="generator" content="Cheepub #{Cheepub::VERSION} with kramdown 1.16.2" />
   </head>
   <body class="bodymatter" epub:type="bodymatter">
     <p>foo<em>bar</em>buz</p>
