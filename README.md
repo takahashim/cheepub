@@ -6,7 +6,11 @@ Cheepub uses [Kramdown](https://github.com/gettalong/kramdown) and [Gepub](https
 
 ## Installation
 
-Add this line to your application's Gemfile:
+You can install just use `gem` command:
+
+    $ gem install cheepub
+
+If you use the gem in your project, add this line to your application's Gemfile:
 
 ```ruby
 gem 'cheepub'
@@ -16,15 +20,30 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install cheepub
-
 ## Usage
+
+You can add options `--title` and `--author`.
+
+```sh
+$ cheepub --title foo --author bar source.md
+```
+
+If you use front-matter section like Jekyll, you can execute without any options:
 
 ```sh
 $ cheepub source.md
 ```
+
+## History
+
+### 0.2.0
+
+- add option `--title`, `--author`, `--config`
+
+### 0.1.0
+
+- First release.
+
 
 ## Development
 
