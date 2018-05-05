@@ -1,8 +1,6 @@
 # Cheepub
 
-Cheepub is EPUB generator from Markdown.
-
-Cheepub uses [Kramdown](https://github.com/gettalong/kramdown) and [Gepub](https://github.com/skoji/gepub).
+Cheepub is EPUB generator from Markdown.  When you have markdown file, you can generate EPUB3 file with just one command: `cheepub sample.md`.
 
 ## Installation
 
@@ -33,6 +31,12 @@ If you use front-matter section like Jekyll, you can execute without any options
 ```sh
 $ cheepub source.md
 ```
+
+## Markdown extensions
+
+Cheepub uses [Kramdown](https://github.com/gettalong/kramdown) and [Gepub](https://github.com/skoji/gepub).
+So you can use Kramdown extensions and some other extensions from [DenDenMarkdown](https://github.com/denshoch/DenDenMarkdown).
+
 
 ## History
 
