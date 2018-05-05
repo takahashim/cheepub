@@ -1,5 +1,7 @@
 # Cheepub
 
+[![Gem Version](https://badge.fury.io/rb/cheepub.svg)](https://badge.fury.io/rb/cheepub)[![Build Status](https://travis-ci.org/takahashim/cheepub.svg?branch=master)](https://travis-ci.org/takahashim/cheepub)
+
 Cheepub is EPUB generator from Markdown.  When you have markdown file, you can generate EPUB3 file with just one command: `cheepub sample.md`.
 
 ## Installation
