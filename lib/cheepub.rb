@@ -1,5 +1,6 @@
 require "clamp"
 require "cheepub/version"
+require "cheepub/error"
 require "cheepub/ext_hash"
 require "cheepub/markdown"
 require "cheepub/markdown/cheemarkdown"

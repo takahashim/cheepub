@@ -23,6 +23,9 @@ module Cheepub
         md.convert
       end
       params = @params.merge(head)
+      if !params[:author] || !params[:title]
+        raise Cheepub::Error, "author and title should be defined."
+      end
       gbook = GEPUB::Book.new do |book|
         book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
         book.title = params[:title]
