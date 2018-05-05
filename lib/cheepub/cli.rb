@@ -9,7 +9,15 @@ module Cheepub
 
     def execute
       gen = Cheepub::Generator.new(src)
-      gen.execute
+      begin
+        gen.execute
+      rescue Cheepub::Error => e
+        puts "Error: #{e.message}"
+        if $DEBUG
+          puts e.backtrace
+        end
+        exit(1)
+      end
     end
   end
 end
