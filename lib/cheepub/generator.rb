@@ -23,35 +23,34 @@ module Cheepub
       if !params[:author] || !params[:title]
         raise Cheepub::Error, "author and title should be defined."
       end
-      gbook = GEPUB::Book.new do |book|
-        book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
-        book.title = params[:title]
-        if params[:creator]
-          parse_creator(book, params[:creator])
-        end
-        book.creator = params[:author]
-        book.language = params[:language] || 'ja'
-        book.version = '3.0'
-        book.publisher = params[:publisher]
-        ## book.date= params[:date] || Time.now
-        book.add_date(params[:date] || Time.now, nil)
-        book.lastmodified = params[:lastModified] || Time.now
-        if params[:pageDirection]
-          book.page_progression_direction = params[:pageDirection]
-        end
-        File.open(File.join(File.dirname(__FILE__), "templates/style.css.erb")) do |f|
-          item = book.add_item("style.css")
-          item.add_content(f)
-        end
-        book.ordered do
-          @content.html_pages.each_with_index do |page, idx|
-            item = book.add_item("bodymatter_0_#{idx}.xhtml")
-            item.add_content(StringIO.new(page))
-          end
+      book = GEPUB::Book.new
+      book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
+      book.title = params[:title]
+      if params[:creator]
+        parse_creator(book, params[:creator])
+      end
+      book.add_creator(params[:author])
+      book.language = params[:language] || 'ja'
+      book.version = '3.0'
+      book.publisher = params[:publisher]
+      ## book.date= params[:date] || Time.now
+      book.add_date(params[:date] || Time.now, nil)
+      book.lastmodified = params[:lastModified] || Time.now
+      if params[:pageDirection]
+        book.page_progression_direction = params[:pageDirection]
+      end
+      File.open(File.join(File.dirname(__FILE__), "templates/style.css.erb")) do |f|
+        item = book.add_item("style.css")
+        item.add_content(f)
+      end
+      book.ordered do
+        @content.html_pages.each_with_index do |page, idx|
+          item = book.add_item("bodymatter_0_#{idx}.xhtml")
+          item.add_content(StringIO.new(page))
         end
       end
       epubname = params[:epubname] || "book.epub"
-      gbook.generate_epub(epubname)
+      book.generate_epub(epubname)
     end
 
     def parse_creator(book, creator)
