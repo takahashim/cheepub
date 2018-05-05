@@ -21,6 +21,28 @@ EOB
     assert_equal expected, result
   end
 
+  def test_separate_minus
+    src = <<-EOB
+test
+
+------
+
+foo
+
+---
+
+bar
+
+------------------------------
+
+buz
+EOB
+    gen = Cheepub::Generator.new(src)
+    expected = ["test\n", "foo\n\n---\n\nbar\n", "buz\n"]
+    result = gen.separate_pages(src)
+    assert_equal expected, result
+  end
+
   def test_separate_nosep
     src = <<-EOB
 foo

@@ -6,8 +6,8 @@ module Cheepub
   class Generator
     using Cheepub::ExtHash
 
-    SEPARATOR_PATTERN = /\n\n={3,}\s*\n\n/m
-    FRONTMATTER_PATTERN = /\A---$(.*)^---\n/m
+    SEPARATOR_PATTERN = /\n\n(?:\={3,}|\-{6,})\s*\n\n/m
+    FRONTMATTER_PATTERN = /\A---$(.*?)^---\n/m
 
     def initialize(src, params = Hash.new)
       @src = src
