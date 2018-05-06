@@ -3,6 +3,3 @@ require "cheepub"
 
 require "test/unit"
 require "test/unit/notify"
-require "simplecov"
-
-SimpleCov.start
