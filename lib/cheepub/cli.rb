@@ -2,14 +2,14 @@ module Cheepub
   class CLI < Clamp::Command
     using Cheepub::ExtHash
 
-    option ["-v", "--version"], :flag, "Show version" do
+    option ["-v", "--version"], :flag, "print version" do
       puts Cheepub::VERSION
       exit(0)
     end
-    option ["--author"], "AUTOR", "author of the book"
-    option ["--title"],  "TITLE", "title of the book"
-    option ["--config"],  "CONFIG", "configuration file"
-    option ["-o", "--out"], "EPUBFILE", "output epub filename", attribute_name: :epubfile
+    option ["--author"], "AUTOR", "set author of the book"
+    option ["--title"],  "TITLE", "set title of the book"
+    option ["--config"],  "CONFIG", "set configuration file"
+    option ["-o", "--out"], "EPUBFILE", "set output epub filename", attribute_name: :epubfile
 
     parameter "SRC", "source file"
 
