@@ -6,9 +6,13 @@ module Cheepub
           if self[key].kind_of? Hash
             self[key].symbolize_keys!
           end
-          self[(key.to_sym rescue nil) || key] = delete(key)
+          self[symbolize_key(key)] = delete(key)
         end
         self
+      end
+
+      def symbolize_key(key)
+        (key.to_sym rescue nil) || key
       end
     end
   end
