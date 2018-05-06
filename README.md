@@ -34,6 +34,16 @@ If you use front-matter section like Jekyll, you can execute without any options
 $ cheepub source.md
 ```
 
+### Options
+
+* `-v, --version`                 print version
+* `--author AUTOR`                set author of the book
+* `--title TITLE`                 set title of the book
+* `--config CONFIG`               set configuration file
+* `-o, --out EPUBFILE`            set output epub filename
+* `-h, --help`                    print help
+
+
 ## Markdown extensions
 
 Cheepub uses [Kramdown](https://github.com/gettalong/kramdown) and [Gepub](https://github.com/skoji/gepub).
