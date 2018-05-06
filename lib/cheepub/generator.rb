@@ -22,8 +22,8 @@ module Cheepub
       check_params(params)
       book = GEPUB::Book.new
       apply_params(book, params)
-      epubname = params[:epubname] || "book.epub"
-      book.generate_epub(epubname)
+      epubfile = params[:epubfile] || "book.epub"
+      book.generate_epub(epubfile)
     end
 
     def parse_creator(book, creator)
