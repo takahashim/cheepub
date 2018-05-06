@@ -16,10 +16,6 @@ If you use the gem in your project, add this line to your application's Gemfile:
 gem 'cheepub'
 ```
 
-And then execute:
-
-    $ bundle
-
 ## Usage
 
 You can add options `--title` and `--author`.
@@ -49,8 +45,30 @@ $ cheepub source.md
 Cheepub uses [Kramdown](https://github.com/gettalong/kramdown) and [Gepub](https://github.com/skoji/gepub).
 So you can use Kramdown extensions and some other extensions from [DenDenMarkdown](https://github.com/denshoch/DenDenMarkdown).
 
+* newpage (separate files): ex. `===` or `------`.
+* tate-chu-yoko (horizontal in vertical): ex. `^30^` or `!?`.
+* footnote: ex. `[^1]` and `[^1]: some notes about it`.
+* ruby: ex. `{some base text|some ruby text}`
+
+
+## Configuration
+
+You can define configration with in front-matter or `--config` option.
+
+### Configuration items
+
+* id: identifier
+* title: title of the book
+* author: author of the book
+* date: publishing date
+* lastModified: last modified date-time
+* pageDirection: `ltr` or `rtl`
 
 ## History
+
+### 0.3.0
+
+- add option `--out`
 
 ### 0.2.0
 
