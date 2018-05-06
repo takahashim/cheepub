@@ -19,10 +19,33 @@ module Cheepub
 
     def execute
       params = @params.merge(@content.header)
+      check_params(params)
+      book = GEPUB::Book.new
+      apply_params(book, params)
+      epubname = params[:epubname] || "book.epub"
+      book.generate_epub(epubname)
+    end
+
+    def parse_creator(book, creator)
+      if creator.kind_of? String
+        book.add_creator(creator)
+      else
+        creator.each do |role, name|
+          if !ROLES.include?(role)
+            raise Cheepub::Error, "invalid role: '#{role}' for creator '#{name}'."
+          end
+          book.add_creator(name, nil, role)
+        end
+      end
+    end
+
+    def check_params(params)
       if !params[:author] || !params[:title]
         raise Cheepub::Error, "author and title should be defined."
       end
-      book = GEPUB::Book.new
+    end
+
+    def apply_params(book, params)
       book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
       book.title = params[:title]
       if params[:creator]
@@ -46,21 +69,6 @@ module Cheepub
         @content.html_pages.each_with_index do |page, idx|
           item = book.add_item("bodymatter_0_#{idx}.xhtml")
           item.add_content(StringIO.new(page))
-        end
-      end
-      epubname = params[:epubname] || "book.epub"
-      book.generate_epub(epubname)
-    end
-
-    def parse_creator(book, creator)
-      if creator.kind_of? String
-        book.add_creator(creator)
-      else
-        creator.each do |role, name|
-          if !ROLES.include?(role)
-            raise Cheepub::Error, "invalid role: '#{role}' for creator '#{name}'."
-          end
-          book.add_creator(name, nil, role)
         end
       end
     end

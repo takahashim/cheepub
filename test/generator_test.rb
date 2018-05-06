@@ -2,6 +2,13 @@ require "test_helper"
 require "cheepub"
 
 class GeneratorTest < Test::Unit::TestCase
+  def test_params_checking_without_author
+    gen = Cheepub::Generator.new(Cheepub::Content.new(""), {title: "test title"})
+    assert_raise(Cheepub::Error) do
+      gen.execute
+    end
+  end
+
   def test_parse_creator
     creator = {aut: "foo", cov: "bar"}
     gen = Cheepub::Generator.new(Cheepub::Content.new(""))
