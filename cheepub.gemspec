@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "test-unit", "~> 3.2"
   spec.add_development_dependency "test-unit-notify"
   spec.add_development_dependency "terminal-notifier"
+  spec.add_development_dependency "simplecov"
 end
