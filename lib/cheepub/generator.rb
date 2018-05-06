@@ -41,7 +41,7 @@ module Cheepub
 
     def check_params(params)
       if !params[:author] || !params[:title]
-        raise Cheepub::Error, "author and title should be defined."
+        raise Cheepub::Error, "you must use `--author` and `--title`, or add front-matter in Markdown file."
       end
     end
 
