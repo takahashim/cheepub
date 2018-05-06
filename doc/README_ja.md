@@ -33,9 +33,14 @@ $ cheepub sample.md
 
 ### コマンドラインオプション
 
-* `--title 【タイトル】 ` タイトルを指定します。
-* `--author 【著者名】 ` 著者名を指定します。
+* `--title 【タイトル】` タイトルを指定します。
+* `--author 【著者名】` 著者名を指定します。
 * `--config 【設定ファイル】` 後述のfront-matterに相当するYAMLファイルを別ファイルで与えた場合に使います。Markdownファイル内に設定を書きたくない人用です。
+* `--out 【EPUBファイル名】 (または -o 【EPUBファイル名】)` 出力するEPUBファイル名を指定します。省略時はbook.epubになります。
+* `--help` ヘルプを表示します。
+* `--version` バージョンを表示します。
+
+front-matterがない場合は`--title`と`--author`は必須です。
 
 ## CheepubのMarkdownについて
 
