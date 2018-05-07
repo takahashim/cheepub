@@ -86,6 +86,10 @@ In a little district west of Washington Square the streets have run crazy and br
 
 ## History
 
+### 0.5.1
+
+- fix to generate valid epub file
+
 ### 0.5.0
 
 - support titlepage
