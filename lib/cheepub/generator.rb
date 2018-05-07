@@ -29,6 +29,7 @@ module Cheepub
     end
 
     def parse_creator(creator)
+      return if !creator
       if creator.kind_of? String
         @book.add_creator(creator)
       else
@@ -51,31 +52,28 @@ module Cheepub
       @book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
       @book.title = params[:title]
       @book.add_creator(params[:author])
-      if params[:creator]
-        parse_creator(params[:creator])
-      end
+      parse_creator(params[:creator])
       @book.language = params[:language] || 'ja'
       @book.version = '3.0'
       @book.publisher = params[:publisher]
       ## book.date= params[:date] || Time.now
       @book.add_date(params[:date] || Time.now, nil)
       @book.lastmodified = params[:lastModified] || Time.now
-      if params[:pageDirection]
-        @book.page_progression_direction = params[:pageDirection]
-      end
-      template = File.read(File.join(File.dirname(__FILE__), "templates/style.css.erb"))
-      style_content = ERB.new(template).result(binding)
+      @book.page_progression_direction = params[:pageDirection]
+      style_content = apply_template("templates/style.css.erb")
       @book.add_item("style.css").add_content(StringIO.new(style_content))
       @book.ordered do
         nav = Cheepub::Nav.new(@content)
-        item = @book.add_item('nav.xhtml')
-        item.add_content(StringIO.new(nav.to_html))
-        item.add_property('nav')
+        item = @book.add_item('nav.xhtml').add_content(StringIO.new(nav.to_html)).add_property('nav')
         @content.each_html_with_filename do |html, filename|
-          item = @book.add_item(filename)
-          item.add_content(StringIO.new(html))
+          @book.add_item(filename).add_content(StringIO.new(html))
         end
       end
+    end
+
+    def apply_template(template_file)
+      template = File.read(File.join(File.dirname(__FILE__), template_file))
+      return ERB.new(template).result(binding)
     end
   end
 end
