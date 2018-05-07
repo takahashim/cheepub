@@ -63,12 +63,12 @@ module Cheepub
       @book.lastmodified = params[:lastModified] || Time.now
       @book.page_progression_direction = params[:pageDirection]
       style_content = apply_template("templates/style.css.erb")
-      @book.add_item("style.css").add_content(StringIO.new(style_content))
+      @book.add_item("style.css").add_raw_content(style_content)
       @book.ordered do
         nav = Cheepub::Nav.new(@content)
-        item = @book.add_item('nav.xhtml').add_content(StringIO.new(nav.to_html)).add_property('nav')
+        item = @book.add_item('nav.xhtml', nil,nil,'properties'=>['nav']).add_raw_content(nav.to_html)
         @content.each_html_with_filename do |html, filename|
-          @book.add_item(filename).add_content(StringIO.new(html))
+          @book.add_item(filename).add_raw_content(html)
         end
       end
     end
