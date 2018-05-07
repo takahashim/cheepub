@@ -3,9 +3,11 @@
 @namespace epub "http://www.idpf.org/2007/ops";
 
 html {
+<% if @book.page_progression_direction == "rtl" %>
   -epub-writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
+<% end %>
 }
 
 body {

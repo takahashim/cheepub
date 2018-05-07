@@ -63,10 +63,9 @@ module Cheepub
       if params[:pageDirection]
         @book.page_progression_direction = params[:pageDirection]
       end
-      File.open(File.join(File.dirname(__FILE__), "templates/style.css.erb")) do |f|
-        item = @book.add_item("style.css")
-        item.add_content(f)
-      end
+      template = File.read(File.join(File.dirname(__FILE__), "templates/style.css.erb"))
+      style_content = ERB.new(template).result(binding)
+      @book.add_item("style.css").add_content(StringIO.new(style_content))
       @book.ordered do
         nav = Cheepub::Nav.new(@content)
         item = @book.add_item('nav.xhtml')
