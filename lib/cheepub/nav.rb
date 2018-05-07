@@ -22,11 +22,7 @@ module Cheepub
     end
 
     def make_file_list(content)
-      buf = []
-      content.each_html_with_filename do |html, filename|
-        buf << [filename, html]
-      end
-      buf
+      content.to_enum(:each_html_with_filename).map{|html,filename| [filename, html]}.to_a
     end
   end
 end
