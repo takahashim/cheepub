@@ -38,6 +38,7 @@ $ cheepub source.md
 * `--title TITLE`                 set title of the book
 * `--config CONFIG`               set configuration file
 * `-o, --out EPUBFILE`            set output epub filename
+* `--[no-]titlepage`              add titlepage or not
 * `-h, --help`                    print help
 
 
@@ -80,9 +81,14 @@ In a little district west of Washington Square the streets have run crazy and br
 * author: author of the book
 * date: publishing date
 * lastModified: last modified date-time
-* pageDirection: `ltr` or `rtl`
+* pageDirection: `ltr` (horizontal) or `rtl` (vertical)
+* titlepage: add titlepage
 
 ## History
+
+### 0.5.0
+
+- support titlepage
 
 ### 0.4.0
 
