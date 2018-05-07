@@ -47,5 +47,10 @@ module Cheepub
       return header, body
     end
 
+    def each_html_with_filename
+      html_pages.each_with_index do |page, idx|
+        yield page, "bodymatter_#{idx}.xhtml"
+      end
+    end
   end
 end

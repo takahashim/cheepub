@@ -66,9 +66,13 @@ module Cheepub
         item.add_content(f)
       end
       book.ordered do
-        @content.html_pages.each_with_index do |page, idx|
-          item = book.add_item("bodymatter_0_#{idx}.xhtml")
-          item.add_content(StringIO.new(page))
+        nav = Cheepub::Nav.generate(@content)
+        item = book.add_item('nav.xhtml')
+        item.add_content(StringIO.new(nav))
+        item.add_property('nav')
+        @content.each_html_with_filename do |html, filename|
+          item = book.add_item(filename)
+          item.add_content(StringIO.new(html))
         end
       end
     end

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="ja" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>nav</title>
+    <style type="text/css">
+      ol {
+        list-style-type: none;
+        margin-left: 0em;
+        padding-left: 0em;
+      }
+    </style>
+  </head>
+  <body class="frontmatter" epub:type="frontmatter">
+    <nav id="toc" class="toc" epub:type="toc">
+      <h2>目次</h2>
+      <%= @body %>  </nav>
+    <nav id="landmarks" class="landmarks" epub:type="landmarks" hidden="hidden">
+      <h2>ガイド</h2>
+       <ol>
+         <li><a epub:type="toc" href="nav.xhtml"><span>目次</span></a></li>
+         <li><a epub:type="bodymatter" href="bodymatter_0.xhtml"><span>本文</span></a></li>
+       </ol>
+    </nav>
+  </body>
+</html>

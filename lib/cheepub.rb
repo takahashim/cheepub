@@ -7,7 +7,6 @@ require "cheepub/markdown/cheemarkdown"
 require "cheepub/cli"
 require "cheepub/generator"
 require "cheepub/content"
-
-module Cheepub
-  # Your code goes here...
-end
+require "cheepub/heading_parser"
+require "cheepub/heading_item"
+require "cheepub/nav"
