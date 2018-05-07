@@ -3,16 +3,18 @@ require 'erb'
 module Cheepub
   class Nav
 
+    attr_reader :root
+
     def initialize(content)
       @content = content
       @root = @body = nil
+      parse
     end
 
-    def parse_content
+    def parse
       parser = HeadingParser.new()
       list = make_file_list()
       @root = parser.parse_files(list)
-      @root
     end
 
     def to_html

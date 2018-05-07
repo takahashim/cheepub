@@ -67,7 +67,6 @@ module Cheepub
       end
       book.ordered do
         nav = Cheepub::Nav.new(@content)
-        root = nav.parse_content
         item = book.add_item('nav.xhtml')
         item.add_content(StringIO.new(nav.to_html))
         item.add_property('nav')
