@@ -47,7 +47,7 @@ Cheepub uses [Kramdown](https://github.com/gettalong/kramdown) and [Gepub](https
 So you can use Kramdown extensions and some other extensions from [DenDenMarkdown](https://github.com/denshoch/DenDenMarkdown).
 
 * newpage (separate files): ex. `===` or `------`.
-* tate-chu-yoko (horizontal in vertical): ex. `^30^` or `!?`.
+* tate-chu-yoko (horizontal in vertical): ex. `^30^` or `^!?^`.
 * footnote: ex. `[^1]` and `[^1]: some notes about it`.
 * ruby: ex. `{some base text|some ruby text}`
 
@@ -55,6 +55,23 @@ So you can use Kramdown extensions and some other extensions from [DenDenMarkdow
 ## Configuration
 
 You can define configration with in front-matter or `--config` option.
+
+## Front Matter
+
+Cheepub supports front-matter like [Jekyll](https://jekyllrb.com/docs/frontmatter/).
+
+You can write author and title (and other configuration) at front of the markdown file.
+
+
+```
+---
+title: The Last Leaf
+author: O. Henry
+---
+
+In a little district west of Washington Square the streets have run crazy and broken themselves into small strips called "places." (...)
+```
+
 
 ### Configuration items
 
