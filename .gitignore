@@ -11,3 +11,5 @@ Gemfile.lock
 \#*#
 *~
 *.bak
+.DS_Store
+/*.epub
