@@ -29,8 +29,10 @@ module Cheepub
     end
 
     def parse_creator(creator)
-      return if !creator
-      if creator.kind_of? String
+      case creator
+      when nil
+        return
+      when String
         @book.add_creator(creator)
       else
         creator.each do |role, name|
