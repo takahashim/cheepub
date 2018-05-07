@@ -66,6 +66,11 @@ You can define configration with in front-matter or `--config` option.
 
 ## History
 
+### 0.4.0
+
+- fix writing-mode (pageDirection)
+- fix to generate nav.xhtml
+
 ### 0.3.0
 
 - add option `--out`
