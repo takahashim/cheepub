@@ -48,10 +48,10 @@ module Cheepub
     def apply_params(book, params)
       book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
       book.title = params[:title]
+      book.add_creator(params[:author])
       if params[:creator]
         parse_creator(book, params[:creator])
       end
-      book.add_creator(params[:author])
       book.language = params[:language] || 'ja'
       book.version = '3.0'
       book.publisher = params[:publisher]
@@ -66,9 +66,10 @@ module Cheepub
         item.add_content(f)
       end
       book.ordered do
-        nav = Cheepub::Nav.generate(@content)
+        nav = Cheepub::Nav.new(@content)
+        root = nav.parse_content
         item = book.add_item('nav.xhtml')
-        item.add_content(StringIO.new(nav))
+        item.add_content(StringIO.new(nav.to_html))
         item.add_property('nav')
         @content.each_html_with_filename do |html, filename|
           item = book.add_item(filename)
