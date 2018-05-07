@@ -21,7 +21,7 @@ module Cheepub
     end
 
     def execute
-      params = @params.merge(@content.header)
+      params = @content.header.merge(@params){|key, val, arg_val| arg_val.nil? ? val : arg_val}
       check_params(params)
       apply_params(params)
       epubfile = params[:epubfile] || "book.epub"
@@ -65,7 +65,7 @@ module Cheepub
       style_content = apply_template("templates/style.css.erb")
       @book.add_item("style.css").add_raw_content(style_content)
       @book.ordered do
-        make_titlepage()
+        make_titlepage(params)
         nav = Cheepub::Nav.new(@content)
         item = @book.add_item('nav.xhtml', nil,nil,'properties'=>['nav']).add_raw_content(nav.to_html)
         @content.each_html_with_filename do |html, filename|
@@ -79,9 +79,11 @@ module Cheepub
       return ERB.new(template).result(binding)
     end
 
-    def make_titlepage
-      titlepage_content = apply_template("templates/titlepage.xhtml.erb")
-      @book.add_item("titlepage.xhtml").add_raw_content(titlepage_content)
+    def make_titlepage(params)
+      if params[:titlepage]
+        titlepage_content = apply_template("templates/titlepage.xhtml.erb")
+        @book.add_item("titlepage.xhtml").add_raw_content(titlepage_content)
+      end
     end
   end
 end

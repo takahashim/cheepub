@@ -10,6 +10,7 @@ module Cheepub
     option ["--title"],  "TITLE", "set title of the book"
     option ["--config"],  "CONFIG", "set configuration file"
     option ["-o", "--out"], "EPUBFILE", "set output epub filename", attribute_name: :epubfile
+    option ["--[no-]titlepage"],  :flag, "add titlepage (or not)"
 
     parameter "SRC", "source file"
 
@@ -21,6 +22,7 @@ module Cheepub
       params[:author] = author
       params[:title] = title
       params[:epubfile] = epubfile
+      params[:titlepage] = titlepage?
       gen = Cheepub::Generator.new(src, params)
       begin
         gen.execute

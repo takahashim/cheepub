@@ -4,6 +4,7 @@ author: オー・ヘンリー
 creator:
   trl: 結城浩
 pageDirection: rtl
+titlepage: true
 ---
 # 最後の一枚の葉 (The Last Leaf)
 

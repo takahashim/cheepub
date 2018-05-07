@@ -3,6 +3,7 @@ title: 夢十夜
 author: 夏目漱石
 publisher: 青空文庫
 pageDirection: rtl
+titlepage: true
 ---
 
 ## 第一夜
