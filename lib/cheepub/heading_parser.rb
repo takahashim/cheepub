@@ -55,19 +55,23 @@ module Cheepub
         next if !item[:id] || item[:content].empty?
         node = HeadingItem.new(id: item[:id], level: item[:level], name: item[:name],
                                content: item[:content], filename: item[:filename], children: [])
-        if node.level == prev.level + 1
-          prev.add_child(node)
-        elsif node.level == prev.level
-          prev.add_sibling(node)
-        elsif node.level > prev.level
-          prev.add_descendant(node)
-        else ## node.level < prev.level
-          prev.add_ancestor(node)
-        end
+        concat_node(prev, node)
         prev = node
       end
 
       root
+    end
+
+    def concat_node(prev, node)
+      if node.level == prev.level + 1
+        prev.add_child(node)
+      elsif node.level == prev.level
+        prev.add_sibling(node)
+      elsif node.level > prev.level
+        prev.add_descendant(node)
+      else ## node.level < prev.level
+        prev.add_ancestor(node)
+      end
     end
   end
 end
