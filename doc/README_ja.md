@@ -1,6 +1,6 @@
 ---
-title: Ceepub説明書
-author: @takahashim
+title: Cheepub説明書
+author: takahashim
 ---
 
 # Cheepubとは
