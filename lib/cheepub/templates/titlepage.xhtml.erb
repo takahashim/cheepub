@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="ja" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <style type="text/css">
+      html {
+      -epub-writing-mode: horizontal-tb;
+      -webkit-writing-mode: horizontal-tb;
+      writing-mode: horizontal-tb;
+      font-family: sans-serif;
+      }
+      h1, h2, h3 {
+      font-size: 1em;
+      }
+      .titlepage {
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+      }
+      .titlepage-title-main {
+      font-size: 1.2em;
+      font-weight: normal;
+      }
+      .titlepage-creator {
+      margin: 0 auto;
+      padding: 1em 0;
+      border:solid #999;
+      border-width:1px 0 0 0;
+      margin: 0 auto;
+      font-size: 1em;
+      line-height: 1.2;
+      font-family: serif, sans-serif;
+      width: 70%;
+      }
+    </style>
+    <title><%= @book.title %></title>
+  </head>
+  <body class="frontmatter" epub:type="frontmatter">
+    <section class="titlepage" epub:type="titlepage" title="扉">
+      <div class="titlepage-title-before">
+      </div>
+      <div class="titlepage-title-main">
+        <h1 class="maintitle" epub:type="title"><%= @book.title %></h1>
+      </div>
+      <div class="titlepage-title-after"></div>
+      <div class="titlepage-creator">
+        <p class="creator"><%= @book.creator %></p>
+      </div>
+    </section>
+  </body>
+</html>

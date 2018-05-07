@@ -65,6 +65,7 @@ module Cheepub
       style_content = apply_template("templates/style.css.erb")
       @book.add_item("style.css").add_raw_content(style_content)
       @book.ordered do
+        make_titlepage()
         nav = Cheepub::Nav.new(@content)
         item = @book.add_item('nav.xhtml', nil,nil,'properties'=>['nav']).add_raw_content(nav.to_html)
         @content.each_html_with_filename do |html, filename|
@@ -76,6 +77,11 @@ module Cheepub
     def apply_template(template_file)
       template = File.read(File.join(File.dirname(__FILE__), template_file))
       return ERB.new(template).result(binding)
+    end
+
+    def make_titlepage
+      titlepage_content = apply_template("templates/titlepage.xhtml.erb")
+      @book.add_item("titlepage.xhtml").add_raw_content(titlepage_content)
     end
   end
 end
