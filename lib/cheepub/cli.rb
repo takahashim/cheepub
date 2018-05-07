@@ -18,9 +18,9 @@ module Cheepub
       if config
         params = YAML.safe_load(config).symbolize_keys!
       end
-      params[:author] = author if author
-      params[:title] = title if title
-      params[:epubfile] = epubfile if epubfile
+      params[:author] = author
+      params[:title] = title
+      params[:epubfile] = epubfile
       gen = Cheepub::Generator.new(src, params)
       begin
         gen.execute
