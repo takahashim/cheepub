@@ -4,6 +4,8 @@ require 'gepub'
 module Cheepub
   class Generator
 
+    attr_reader :book
+
     ROLES = %i{aut edt trl ill cov cre pht cwt nrt}
 
     def initialize(src, params = Hash.new)
@@ -15,26 +17,26 @@ module Cheepub
         @content = Cheepub::Content.new(File.read(@src))
       end
       @params = params
+      @book = GEPUB::Book.new
     end
 
     def execute
       params = @params.merge(@content.header)
       check_params(params)
-      book = GEPUB::Book.new
-      apply_params(book, params)
+      apply_params(params)
       epubfile = params[:epubfile] || "book.epub"
-      book.generate_epub(epubfile)
+      @book.generate_epub(epubfile)
     end
 
-    def parse_creator(book, creator)
+    def parse_creator(creator)
       if creator.kind_of? String
-        book.add_creator(creator)
+        @book.add_creator(creator)
       else
         creator.each do |role, name|
           if !ROLES.include?(role)
             raise Cheepub::Error, "invalid role: '#{role}' for creator '#{name}'."
           end
-          book.add_creator(name, nil, role)
+          @book.add_creator(name, nil, role)
         end
       end
     end
@@ -45,33 +47,33 @@ module Cheepub
       end
     end
 
-    def apply_params(book, params)
-      book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
-      book.title = params[:title]
-      book.add_creator(params[:author])
+    def apply_params(params)
+      @book.identifier = params[:id] || "urn:uuid:#{SecureRandom.uuid}"
+      @book.title = params[:title]
+      @book.add_creator(params[:author])
       if params[:creator]
-        parse_creator(book, params[:creator])
+        parse_creator(params[:creator])
       end
-      book.language = params[:language] || 'ja'
-      book.version = '3.0'
-      book.publisher = params[:publisher]
+      @book.language = params[:language] || 'ja'
+      @book.version = '3.0'
+      @book.publisher = params[:publisher]
       ## book.date= params[:date] || Time.now
-      book.add_date(params[:date] || Time.now, nil)
-      book.lastmodified = params[:lastModified] || Time.now
+      @book.add_date(params[:date] || Time.now, nil)
+      @book.lastmodified = params[:lastModified] || Time.now
       if params[:pageDirection]
-        book.page_progression_direction = params[:pageDirection]
+        @book.page_progression_direction = params[:pageDirection]
       end
       File.open(File.join(File.dirname(__FILE__), "templates/style.css.erb")) do |f|
-        item = book.add_item("style.css")
+        item = @book.add_item("style.css")
         item.add_content(f)
       end
-      book.ordered do
+      @book.ordered do
         nav = Cheepub::Nav.new(@content)
-        item = book.add_item('nav.xhtml')
+        item = @book.add_item('nav.xhtml')
         item.add_content(StringIO.new(nav.to_html))
         item.add_property('nav')
         @content.each_html_with_filename do |html, filename|
-          item = book.add_item(filename)
+          item = @book.add_item(filename)
           item.add_content(StringIO.new(html))
         end
       end

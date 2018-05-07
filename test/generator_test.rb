@@ -12,9 +12,8 @@ class GeneratorTest < Test::Unit::TestCase
   def test_parse_creator
     creator = {aut: "foo", cov: "bar"}
     gen = Cheepub::Generator.new(Cheepub::Content.new(""))
-    book = GEPUB::Book.new
-    gen.parse_creator(book, creator)
-    list = book.creator_list
+    gen.parse_creator(creator)
+    list = gen.book.creator_list
     assert_equal :aut, list[0].role.content
     assert_equal "foo", list[0].content
     assert_equal :cov, list[1].role.content
