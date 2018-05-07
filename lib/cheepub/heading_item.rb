@@ -58,6 +58,8 @@ module Cheepub
       end
       if id && content.length > 0
         buf << "  #{indent}<a href=\"#{filename}\##{id}\">#{content}</a>\n"
+      elsif level > 0
+        buf << "  #{indent}<span>&#160;</span>\n"
       end
       if !children.empty?
         buf << "  #{indent}<ol>\n" +
