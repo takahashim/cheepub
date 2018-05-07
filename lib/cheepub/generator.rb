@@ -57,7 +57,7 @@ module Cheepub
       parse_creator(params[:creator])
       @book.language = params[:language] || 'ja'
       @book.version = '3.0'
-      @book.publisher = params[:publisher]
+      @book.publisher = params[:publisher] if params[:publisher]
       ## book.date= params[:date] || Time.now
       @book.add_date(params[:date] || Time.now, nil)
       @book.lastmodified = params[:lastModified] || Time.now
