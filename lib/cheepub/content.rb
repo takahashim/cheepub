@@ -18,12 +18,12 @@ module Cheepub
       @pages = separate_pages(@body)
     end
 
-    def html_pages
+    def converted_pages
       @pages.map{ |page| Cheepub::Markdown.new(page).convert }
     end
 
-    def each_html_with_filename
-      html_pages.each_with_index do |page, idx|
+    def each_content_with_filename
+      converted_pages.each_with_index do |page, idx|
         yield page, "bodymatter_#{idx}.xhtml"
       end
     end

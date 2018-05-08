@@ -40,7 +40,7 @@ module Cheepub
           make_titlepage(params)
           nav = Cheepub::Nav.new(@content)
           @book.add_item('nav.xhtml', nil,nil,'properties'=>['nav']).add_raw_content(nav.to_html)
-          @content.each_html_with_filename do |html, filename|
+          @content.each_content_with_filename do |html, filename|
             @book.add_item(filename).add_raw_content(html)
           end
         end
