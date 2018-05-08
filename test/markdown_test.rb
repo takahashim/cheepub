@@ -12,7 +12,7 @@ class MarkdwnTest < Test::Unit::TestCase
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <title>EPUB sample</title>
-    <meta name="generator" content="Cheepub #{Cheepub::VERSION} with kramdown 1.16.2" />
+    <meta name="generator" content="Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}" />
   </head>
   <body class="bodymatter" epub:type="bodymatter">
     <p>foo<em>bar</em>buz</p>
@@ -67,5 +67,14 @@ EOB
     result =~ /<body[^>]+>\n(.*)  +<\/body>/m
     para = $1
     assert_equal(expected, para)
+  end
+
+  def test_convert_sample
+    content = File.read(File.join(FIXTURES_DIR, "sample.md"))
+
+    md = Cheepub::Markdown.new(content)
+    result = md.convert
+    expected = File.read(File.join(FIXTURES_DIR, "sample.html")).sub("X.X.X", Cheepub::VERSION).sub("Y.Y.Y", Kramdown::VERSION)
+    assert_equal(expected, result)
   end
 end

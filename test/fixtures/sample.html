@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="ja" lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>EPUB sample</title>
+    <meta name="generator" content="Cheepub X.X.X with kramdown Y.Y.Y" />
+  </head>
+  <body class="bodymatter" epub:type="bodymatter">
+    <h1 id="テスト">テスト</h1>
+
+<p>これは<strong>テスト</strong>です。</p>
+
+<h3 id="節見出し">節見出し</h3>
+
+<p>_節_の<a href="https://example.jp/">テスト</a>です。</p>
+
+<div class="language-ruby highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Hello</span>
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>  <span style="color:#777"># say hello</span>
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">hello</span>
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span>    p <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">hello!</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n5" name="n5">5</a></span>  <span style="color:#080;font-weight:bold">end</span>
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span><span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p><img src="https://example.jp/img.jpg" alt="img" /></p>
+
+<p>↓Markdownとして解釈するとただの<code>&lt;hr /&gt;</code>になります。Cheepub::Contentで解釈するとページを分割します。</p>
+
+<hr />
+
+<h1 id="続き">続き</h1>
+
+<p><ruby>続<rt>つづ</rt></ruby>きの<ruby>章<rt>しょう</rt></ruby>です。<span class="tcy">12</span>といった<ruby>縦中横<rt>たてちゅうよこ</rt></ruby>も書けます。</p>
+
+<h2 id="箇条書き">箇条書き</h2>
+
+<ul>
+  <li>1
+    <ul>
+      <li>1-1</li>
+      <li>1-2</li>
+    </ul>
+  </li>
+  <li>2</li>
+  <li>3
+    <ul>
+      <li>3-1
+        <ul>
+          <li>3-1-1</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="連番つき箇条書き">連番つき箇条書き</h2>
+
+<ol>
+  <li>1
+    <ol>
+      <li>1-1</li>
+      <li>1-2</li>
+    </ol>
+  </li>
+  <li>2</li>
+  <li>3
+    <ol>
+      <li>3-1
+        <ol>
+          <li>3-1-1</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+  </body>
+</html>
