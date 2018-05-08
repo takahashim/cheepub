@@ -23,7 +23,7 @@ module Cheepub
       params[:title] = title
       params[:epubfile] = epubfile
       params[:titlepage] = titlepage?
-      gen = Cheepub::Generator.new(src, params)
+      gen = Cheepub::Generator::Epub.new(src, params)
       begin
         gen.execute
       rescue Cheepub::Error => e

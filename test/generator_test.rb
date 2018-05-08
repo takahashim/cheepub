@@ -3,7 +3,7 @@ require "cheepub"
 
 class GeneratorTest < Test::Unit::TestCase
   def test_params_checking_without_author
-    gen = Cheepub::Generator.new(Cheepub::Content.new(""), {title: "test title"})
+    gen = Cheepub::Generator::Epub.new(Cheepub::Content.new(""), {title: "test title"})
     assert_raise(Cheepub::Error) do
       gen.execute
     end
@@ -11,7 +11,7 @@ class GeneratorTest < Test::Unit::TestCase
 
   def test_parse_creator
     creator = {aut: "foo", cov: "bar"}
-    gen = Cheepub::Generator.new(Cheepub::Content.new(""))
+    gen = Cheepub::Generator::Epub.new(Cheepub::Content.new(""))
     gen.parse_creator(creator)
     list = gen.book.creator_list
     assert_equal :aut, list[0].role.content
