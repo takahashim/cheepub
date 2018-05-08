@@ -15,8 +15,7 @@ module Cheepub
       template = File.read(File.join(File.dirname(__FILE__), "templates/nav.xhtml.erb"))
       @body = @root.to_html_ol
       erb = ERB.new(template)
-      str = erb.result(binding)
-      str
+      return erb.result(binding)
     end
 
 
