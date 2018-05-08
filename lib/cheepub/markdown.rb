@@ -15,7 +15,7 @@ module Cheepub
                         title: "content",
                         cssfile: "style.css",
                         generator: "Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}",
-                        input: "CheeMarkdown",
+                        input: "cheemarkdown",
                        }
       @params = default_params.merge(params)
       @text = text

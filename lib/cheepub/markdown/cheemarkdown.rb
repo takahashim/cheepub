@@ -2,7 +2,7 @@ require 'kramdown/parser/gfm'
 
 module Kramdown
   module Parser
-    class CheeMarkdown < Kramdown::Parser::GFM
+    class Cheemarkdown < Kramdown::Parser::GFM
 
       def initialize(source, options)
         super
