@@ -22,6 +22,13 @@ module Cheepub
       @pages.map{ |page| Cheepub::Markdown.new(page).convert }
     end
 
+    def each_html_with_filename
+      html_pages.each_with_index do |page, idx|
+        yield page, "bodymatter_#{idx}.xhtml"
+      end
+    end
+
+
     def separate_pages(body)
       pages = nil
       if body =~ SEPARATOR_PATTERN
@@ -45,12 +52,6 @@ module Cheepub
         header, body = Hash.new(), src
       end
       return header, body
-    end
-
-    def each_html_with_filename
-      html_pages.each_with_index do |page, idx|
-        yield page, "bodymatter_#{idx}.xhtml"
-      end
     end
   end
 end
