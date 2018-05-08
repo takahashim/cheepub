@@ -12,7 +12,7 @@ module Cheepub
     def initialize(text, **params)
       default_params = {template: File.join(File.dirname(__FILE__), "templates/bodymatter.html.erb"),
                         lang: "ja",
-                        title: "EPUB sample",
+                        title: "content",
                         cssfile: "style.css",
                         generator: "Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}",
                         input: "CheeMarkdown",
