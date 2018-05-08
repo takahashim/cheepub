@@ -1,4 +1,4 @@
-require 'kramdown/parser/kramdown'
+require 'kramdown/parser/gfm'
 
 module Kramdown
   module Parser
