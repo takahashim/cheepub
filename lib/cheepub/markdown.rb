@@ -22,7 +22,16 @@ module Cheepub
     end
 
     def convert
-      Kramdown::Document.new(@text, @params).to_html
+      params = @params.dup
+      params[:syntax_highlighter] = "coderay"
+      Kramdown::Document.new(@text, params).to_html
+    end
+
+    def to_latex
+      params = @params.dup
+      params[:template] = File.join(File.dirname(__FILE__), "templates/bodymatter.tex.erb")
+      params[:latex_headers] = %w{chapter section subsection subsubsection paragraph subparagraph}
+      Kramdown::Document.new(@text, params).to_latex
     end
 
     alias_method :to_html, :convert

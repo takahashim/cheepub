@@ -77,4 +77,13 @@ EOB
     expected = File.read(File.join(FIXTURES_DIR, "sample.html")).sub("X.X.X", Cheepub::VERSION).sub("Y.Y.Y", Kramdown::VERSION)
     assert_equal(expected, result)
   end
+
+  def test_convert_latex
+    content = File.read(File.join(FIXTURES_DIR, "sample.md"))
+
+    md = Cheepub::Markdown.new(content)
+    result = md.to_latex
+    expected = File.read(File.join(FIXTURES_DIR, "sample.tex"))
+    assert_equal(expected, result)
+  end
 end

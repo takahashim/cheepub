@@ -28,7 +28,7 @@ module Cheepub
     end
 
     def make_file_list
-      @content.to_enum(:each_content_with_filename).map{|html,filename| [filename, html]}.to_a
+      @content.to_enum(:each_content_with_filename, "xhtml").map{|html,filename| [filename, html]}.to_a
     end
   end
 end
