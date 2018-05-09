@@ -30,7 +30,7 @@ module Cheepub
     def to_latex
       params = @params.dup
       params[:template] = File.join(File.dirname(__FILE__), "templates/bodymatter.tex.erb")
-      params[:latex_headers] = %w{chapter section subsection subsubsection paragraph subparagraph}
+      params[:latex_headers] = %w{chapter* section* subsection* subsubsection* paragraph* subparagraph*}
       Kramdown::Document.new(@text, params).to_latex
     end
 
