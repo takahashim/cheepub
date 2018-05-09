@@ -10,6 +10,7 @@ module Cheepub
     option ["--title"],  "TITLE", "set title of the book"
     option ["--config"],  "CONFIG", "set configuration file"
     option ["--latex"],  :flag, "generate PDF with LaTeX"
+    option ["--debug"],  :flag, "set debug mode"
     option ["-o", "--output"], "EPUBFILE", "set output filename", attribute_name: :output
     option ["--[no-]titlepage"],  :flag, "add titlepage (or not)"
 
@@ -24,6 +25,7 @@ module Cheepub
       params[:title] = title
       params[:output] = output
       params[:titlepage] = titlepage?
+      params[:debug] = debug?
       if latex?
         gen = Cheepub::Generator::Latex.new(src, params)
       else

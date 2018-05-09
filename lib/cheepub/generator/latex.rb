@@ -15,7 +15,7 @@ module Cheepub
 
       def output_file(params)
         outfile = params[:outfile] || "book.pdf"
-        @maker.generate_pdf(outfile)
+        @maker.generate_pdf(outfile, debug: params[:debug])
       end
 
       def add_creator(name, role = "aut")
