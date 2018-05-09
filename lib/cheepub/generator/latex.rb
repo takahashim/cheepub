@@ -31,6 +31,9 @@ module Cheepub
         @maker.date= params[:date] || Time.now
         @maker.lastmodified = params[:lastModified] || Time.now
         @maker.page_progression_direction = params[:pageDirection]
+        if params[:documentClass]
+          @maker.document_class = params[:documentClass]
+        end
         @content.each_content_with_filename("tex") do |content, filename|
           @maker.add_item(filename, content)
         end
