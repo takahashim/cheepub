@@ -38,6 +38,7 @@ $ cheepub source.md
 * `--title TITLE`                 set title of the book
 * `--config CONFIG`               set configuration file
 * `--latex`                       (experimental) generate PDF (with LaTeX) file
+* `--debug`                       set debug mode
 * `-o, --out OUTFILE`             set output filename
 * `--[no-]titlepage`              add titlepage or not
 * `-h, --help`                    print help
@@ -86,6 +87,11 @@ In a little district west of Washington Square the streets have run crazy and br
 * titlepage: add titlepage
 
 ## History
+
+### 0.7.0
+
+- support option `--debug`
+- support `documentClass` for LaTeX in frontmatter
 
 ### 0.6.0
 
