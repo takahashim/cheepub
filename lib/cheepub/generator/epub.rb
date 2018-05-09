@@ -14,8 +14,8 @@ module Cheepub
       end
 
       def output_file(params)
-        epubfile = params[:epubfile] || "book.epub"
-        @book.generate_epub(epubfile)
+        output = params[:output] || "book.epub"
+        @book.generate_epub(output)
       end
 
       def add_creator(name, role)
