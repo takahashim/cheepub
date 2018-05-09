@@ -35,7 +35,7 @@ module Cheepub
         gen.execute
       rescue Cheepub::Error => e
         puts "Error: #{e.message}"
-        if $DEBUG
+        if params[:debug]
           puts e.backtrace
         end
         exit(1)
