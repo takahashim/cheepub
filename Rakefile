@@ -9,6 +9,8 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
 end
 
+CLEAN << ".rblatex_work"
+
 task :default => [:test, :rufo]
 
 desc "Run rufo"
