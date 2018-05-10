@@ -11,7 +11,7 @@ module Cheepub
     option ["--config"],  "CONFIG", "set configuration file"
     option ["--latex"],  :flag, "generate PDF with LaTeX"
     option ["--debug"],  :flag, "set debug mode"
-    option ["-o", "--output"], "EPUBFILE", "set output filename", attribute_name: :output
+    option ["-o", "--output"], "OUTFILE", "set output filename", attribute_name: :output
     option ["--[no-]titlepage"],  :flag, "add titlepage (or not)"
     option ["--page-direction"], "PAGE_DIRECTION", "set page direction (ltr or rtl)"
 

@@ -14,7 +14,7 @@ module Cheepub
       end
 
       def output_file(params)
-        outfile = params[:outfile] || "book.pdf"
+        outfile = params[:output] || "book.pdf"
         @maker.generate_pdf(outfile, debug: params[:debug])
       end
 
