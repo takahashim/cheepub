@@ -1,4 +1,10 @@
+tmp = $VERBOSE
+$VERBOSE = false
 require "clamp"
+require "oga"
+require "rouge"
+$VERBOSE = tmp
+
 require "cheepub/version"
 require "cheepub/error"
 require "cheepub/ext_hash"
