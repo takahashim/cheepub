@@ -5,6 +5,7 @@ publisher: 青空文庫
 pageDirection: rtl
 titlepage: true
 license: public domain
+latexCommand: lualatex
 documentClass: ["jlreq", "tate,book,a4paper,twocolumn,openany"]
 ---
 

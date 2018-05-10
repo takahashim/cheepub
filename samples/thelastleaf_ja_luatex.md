@@ -3,9 +3,9 @@ title: 最後の一枚の葉
 author: オー・ヘンリー
 creator:
   trl: 結城浩
-pageDirection: rtl
 titlepage: true
-license: Copyright (C) 1999 Hiroshi Yuki, need attribution http://www.hyuki.com/trans/leaf.html
+latexCommand: lualatex
+documentClass: ["jlreq", "tate,book,a4paper,twocolumn,openany"]
 ---
 # 最後の一枚の葉 (The Last Leaf)
 

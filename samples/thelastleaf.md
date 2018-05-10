@@ -1,6 +1,7 @@
 ---
 title: The Last Leaf
 author: by O. Henry
+license: public domain
 ---
 
 # THE LAST LEAF
