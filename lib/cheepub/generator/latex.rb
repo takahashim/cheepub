@@ -31,8 +31,12 @@ module Cheepub
         @maker.date= params[:date] || Time.now
         @maker.lastmodified = params[:lastModified] || Time.now
         @maker.page_progression_direction = params[:pageDirection]
-        @maker.latex_command = params[:latexCommand]
-        @maker.dvipdf_command = params[:dvipdfCommand]
+        if params.key?(:latexCommand)
+          @maker.latex_command = params[:latexCommand]
+        end
+        if params.key?(:dvipdfCommand)
+          @maker.dvipdf_command = params[:dvipdfCommand]
+        end
         @maker.debug = params[:debug]
         if params[:documentClass]
           @maker.document_class = params[:documentClass]
