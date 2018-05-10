@@ -13,6 +13,7 @@ module Cheepub
     option ["--debug"],  :flag, "set debug mode"
     option ["-o", "--output"], "EPUBFILE", "set output filename", attribute_name: :output
     option ["--[no-]titlepage"],  :flag, "add titlepage (or not)"
+    option ["--page-direction"], "PAGE_DIRECTION", "set page direction (ltr or rtl)"
 
     parameter "SRC", "source file"
 
@@ -26,6 +27,7 @@ module Cheepub
       params[:output] = output
       params[:titlepage] = titlepage?
       params[:debug] = debug?
+      params[:pageDirection] = page_direction
       if latex?
         gen = Cheepub::Generator::Latex.new(src, params)
       else
