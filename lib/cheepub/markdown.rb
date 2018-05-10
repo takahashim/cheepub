@@ -14,6 +14,7 @@ module Cheepub
                         lang: "ja",
                         title: "content",
                         cssfile: "style.css",
+                        syntax_highlighter: nil,
                         generator: "Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}",
                         input: "cheemarkdown",
                        }
@@ -23,7 +24,7 @@ module Cheepub
 
     def convert
       params = @params.dup
-      params[:syntax_highlighter] = "coderay"
+      params[:syntax_highlighter] = "rouge"
       Kramdown::Document.new(@text, params).to_html
     end
 
