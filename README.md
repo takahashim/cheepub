@@ -88,6 +88,13 @@ In a little district west of Washington Square the streets have run crazy and br
 
 ## History
 
+### 0.7.1
+
+- show backtrace when `--debug` mode
+- use `rouge` for EPUB instead of `coderay`
+- add more samples
+- add scripts `conv_entity.rb`
+
 ### 0.7.0
 
 - support option `--debug`
