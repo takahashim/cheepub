@@ -1,4 +1,5 @@
 require 'kramdown'
+require 'json'
 
 module Cheepub
   class Markdown
@@ -41,6 +42,12 @@ module Cheepub
       params = @params.dup
       params[:template] = nil
       Kramdown::Document.new(@text, params).to_hash_ast
+    end
+
+    def to_json
+      params = @params.dup
+      params[:template] = nil
+      Kramdown::Document.new(@text, params).to_hash_ast.to_json
     end
 
     def save_as(filename)

@@ -11,6 +11,7 @@ module Cheepub
     option ["--config"],  "CONFIG", "set configuration file"
     option ["--latex"],  :flag, "generate PDF with LaTeX"
     option ["--debug"],  :flag, "set debug mode"
+    option ["--json"],   :flag, "output JSON AST and exit"
     option ["-o", "--output"], "OUTFILE", "set output filename", attribute_name: :output
     option ["--[no-]titlepage"],  :flag, "add titlepage (or not)"
     option ["--page-direction"], "PAGE_DIRECTION", "set page direction (ltr or rtl)"
@@ -28,6 +29,11 @@ module Cheepub
       params[:titlepage] = titlepage?
       params[:debug] = debug?
       params[:pageDirection] = page_direction
+      if json?
+        params[:template] = nil
+        print Cheepub::Markdown.parse(src, params).to_json
+        exit 0
+      end
       if latex?
         gen = Cheepub::Generator::Latex.new(src, params)
       else
