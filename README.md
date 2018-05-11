@@ -41,6 +41,8 @@ $ cheepub source.md
 * `--debug`                       set debug mode
 * `-o, --out OUTFILE`             set output filename
 * `--[no-]titlepage`              add titlepage or not
+* `--page-direction PAGE_DIRECTION`  set page direction (`ltr` or `rtl`)
+* `--json`                        output JSON AST and exit
 * `-h, --help`                    print help
 
 
@@ -87,6 +89,10 @@ In a little district west of Washington Square the streets have run crazy and br
 * titlepage: add titlepage
 
 ## History
+
+### 0.8.0
+
+- support option `--json`
 
 ### 0.7.1
 
