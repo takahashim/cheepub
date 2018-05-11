@@ -45,8 +45,8 @@ module Cheepub
           "}{#{str}"
         elsif el.value == :span
           "\\rensuji{#{inner(el, opts)}}"
-        elsif el.value == :p && el.children.size == 1 && el.children.first.value == :br
-          "\\vspace{\\baselineskip}\n"
+        elsif el.value == "p" && el.children.size == 1 && el.children.first.value == "br"
+            "\\rblatexEmptyLine\n"
         else
           super
         end
