@@ -4,6 +4,16 @@ module Cheepub
   module Converter
     module CheeLatex
 
+      def convert_p(el, opts)
+        if el.children.size == 1 && el.children.first.type == :img && !(img = convert_img(el.children.first, opts)).empty?
+          convert_standalone_image(el, opts, img)
+        elsif el.attr['class'].to_s =~ /text\-right/
+          "#{latex_link_target(el)}\\begin{flushright}#{inner(el, opts)}\\end{flushright}\n\n"
+        else
+          "#{latex_link_target(el)}#{inner(el, opts)}\n\n"
+        end
+      end
+
       def convert_codeblock(el, opts)
         show_whitespace = el.attr['class'].to_s =~ /\bshow-whitespaces\b/
         lang = extract_code_language(el.attr)
