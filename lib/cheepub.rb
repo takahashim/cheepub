@@ -1,3 +1,4 @@
+## suppress warning in 3rd party libraries
 tmp = $VERBOSE
 $VERBOSE = false
 require "clamp"
@@ -19,3 +20,7 @@ require "cheepub/heading_parser"
 require "cheepub/heading_item"
 require "cheepub/nav"
 require "cheepub/converter/cheelatex"
+
+module Cheepub
+  TEMPLATES_DIR = File.join(File.dirname(__FILE__), "../templates")
+end

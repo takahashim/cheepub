@@ -11,7 +11,7 @@ module Cheepub
     end
 
     def initialize(text, **params)
-      default_params = {template: File.join(File.dirname(__FILE__), "templates/bodymatter.html.erb"),
+      default_params = {template: File.join(Cheepub::TEMPLATES_DIR, "bodymatter.html.erb"),
                         lang: "ja",
                         title: "content",
                         cssfile: "style.css",
@@ -31,7 +31,7 @@ module Cheepub
 
     def to_latex
       params = @params.dup
-      params[:template] = File.join(File.dirname(__FILE__), "templates/bodymatter.tex.erb")
+      params[:template] = File.join(Cheepub::TEMPLATES_DIR, "bodymatter.tex.erb")
       params[:latex_headers] = %w{chapter* section* subsection* subsubsection* paragraph* subparagraph*}
       Kramdown::Document.new(@text, params).to_latex
     end

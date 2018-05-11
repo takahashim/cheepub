@@ -47,7 +47,7 @@ module Cheepub
       end
 
       def apply_template(template_file)
-        template = File.read(File.join(Cheepub::Generator::TEMPLATES_DIR, template_file))
+        template = File.read(File.join(Cheepub::TEMPLATES_DIR, template_file))
         return ERB.new(template).result(binding)
       end
     end

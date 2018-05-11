@@ -12,7 +12,7 @@ module Cheepub
     end
 
     def to_html
-      template = File.read(File.join(File.dirname(__FILE__), "templates/nav.xhtml.erb"))
+      template = File.read(File.join(Cheepub::TEMPLATES_DIR, "nav.xhtml.erb"))
       @body = @root.to_html_ol
       erb = ERB.new(template)
       return erb.result(binding)

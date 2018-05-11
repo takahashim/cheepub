@@ -2,7 +2,6 @@ module Cheepub
   class Generator
 
     ROLES = %i{aut edt trl ill cov cre pht cwt nrt}
-    TEMPLATES_DIR = File.join(File.dirname(__FILE__), "templates")
 
     def initialize(src, params)
       if src.kind_of? Cheepub::Content
