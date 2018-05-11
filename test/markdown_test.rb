@@ -1,5 +1,6 @@
 require "test_helper"
 require "cheepub"
+require "pp"
 
 class MarkdwnTest < Test::Unit::TestCase
   def test_convert
@@ -84,6 +85,18 @@ EOB
     md = Cheepub::Markdown.new(content)
     result = md.to_latex
     expected = File.read(File.join(FIXTURES_DIR, "sample.tex"))
+    assert_equal(expected, result)
+  end
+
+  def test_convert_hash_ast
+    content = File.read(File.join(FIXTURES_DIR, "sample.md"))
+
+    md = Cheepub::Markdown.new(content)
+    hash = md.to_hash_ast
+    out = []
+    PP.pp(hash, out)
+    result = out.join
+    expected = File.read(File.join(FIXTURES_DIR, "sample.hash_ast"))
     assert_equal(expected, result)
   end
 end

@@ -37,6 +37,12 @@ module Cheepub
 
     alias_method :to_html, :convert
 
+    def to_hash_ast
+      params = @params.dup
+      params[:template] = nil
+      Kramdown::Document.new(@text, params).to_hash_ast
+    end
+
     def save_as(filename)
       html = convert
       File.write(filename, html)
