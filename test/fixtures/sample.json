@@ -1,0 +1,910 @@
+{
+  "type": "root",
+  "options": {
+    "encoding": "UTF-8",
+    "location": 1,
+    "options": {
+    },
+    "abbrev_defs": {
+    },
+    "abbrev_attr": {
+    }
+  },
+  "children": [
+    {
+      "type": "header",
+      "attr": {
+        "id": "テスト"
+      },
+      "options": {
+        "level": 1,
+        "raw_text": "テスト",
+        "location": 1
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "テスト",
+          "options": {
+            "location": 1
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "p",
+      "options": {
+        "location": 3
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "これは",
+          "options": {
+            "location": 3
+          }
+        },
+        {
+          "type": "strong",
+          "options": {
+            "location": 3
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "テスト",
+              "options": {
+                "location": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "です。",
+          "options": {
+            "location": 3
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "header",
+      "attr": {
+        "id": "節見出し"
+      },
+      "options": {
+        "level": 3,
+        "raw_text": "節見出し",
+        "location": 5
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "節見出し",
+          "options": {
+            "location": 5
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "p",
+      "options": {
+        "location": 7
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "_節_の",
+          "options": {
+            "location": 7
+          }
+        },
+        {
+          "type": "a",
+          "attr": {
+            "href": "https://example.jp/"
+          },
+          "options": {
+            "location": 7,
+            "ial": null
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "テスト",
+              "options": {
+                "location": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "です。",
+          "options": {
+            "location": 7
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "codeblock",
+      "attr": {
+        "class": "language-ruby"
+      },
+      "value": "class Hello\n  # say hello\n  def hello\n    p \"hello!\"\n  end\nend\n",
+      "options": {
+        "location": 9,
+        "lang": "ruby"
+      }
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "p",
+      "options": {
+        "location": 18
+      },
+      "children": [
+        {
+          "type": "img",
+          "attr": {
+            "src": "https://example.jp/img.jpg",
+            "alt": "img"
+          },
+          "options": {
+            "location": 18,
+            "ial": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "p",
+      "options": {
+        "location": 20
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "↓Markdownとして解釈するとただの",
+          "options": {
+            "location": 20
+          }
+        },
+        {
+          "type": "codespan",
+          "value": "<hr />",
+          "options": {
+            "location": 20
+          }
+        },
+        {
+          "type": "text",
+          "value": "になります。Cheepub::Contentで解釈するとページを分割します。",
+          "options": {
+            "location": 20
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "hr",
+      "options": {
+        "location": 22
+      }
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "header",
+      "attr": {
+        "id": "続き"
+      },
+      "options": {
+        "level": 1,
+        "raw_text": "続き",
+        "location": 24
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "続き",
+          "options": {
+            "location": 24
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "p",
+      "options": {
+        "location": 26
+      },
+      "children": [
+        {
+          "type": "html_element",
+          "value": "ruby",
+          "options": {
+            "category": "span",
+            "localtion": 26
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "続",
+              "options": {
+                "location": null
+              }
+            },
+            {
+              "type": "html_element",
+              "value": "rt",
+              "options": {
+                "category": "span",
+                "localtion": 26
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "つづ",
+                  "options": {
+                    "location": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "きの",
+          "options": {
+            "location": 26
+          }
+        },
+        {
+          "type": "html_element",
+          "value": "ruby",
+          "options": {
+            "category": "span",
+            "localtion": 26
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "章",
+              "options": {
+                "location": null
+              }
+            },
+            {
+              "type": "html_element",
+              "value": "rt",
+              "options": {
+                "category": "span",
+                "localtion": 26
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "しょう",
+                  "options": {
+                    "location": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "です。",
+          "options": {
+            "location": 26
+          }
+        },
+        {
+          "type": "html_element",
+          "attr": {
+            "class": "tcy"
+          },
+          "value": "span",
+          "options": {
+            "category": "span",
+            "localtion": 26
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "12",
+              "options": {
+                "location": null
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "といった",
+          "options": {
+            "location": 26
+          }
+        },
+        {
+          "type": "html_element",
+          "value": "ruby",
+          "options": {
+            "category": "span",
+            "localtion": 26
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "縦中横",
+              "options": {
+                "location": null
+              }
+            },
+            {
+              "type": "html_element",
+              "value": "rt",
+              "options": {
+                "category": "span",
+                "localtion": 26
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "たてちゅうよこ",
+                  "options": {
+                    "location": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "も書けます。",
+          "options": {
+            "location": 26
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "header",
+      "attr": {
+        "id": "箇条書き"
+      },
+      "options": {
+        "level": 2,
+        "raw_text": "箇条書き",
+        "location": 28
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "箇条書き",
+          "options": {
+            "location": 28
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "ul",
+      "options": {
+        "location": 30
+      },
+      "children": [
+        {
+          "type": "li",
+          "options": {
+            "location": 30
+          },
+          "children": [
+            {
+              "type": "p",
+              "options": {
+                "location": 30,
+                "transparent": true
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "1",
+                  "options": {
+                    "location": 30
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n",
+                  "options": {
+                    "location": 31
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ul",
+              "options": {
+                "location": 31
+              },
+              "children": [
+                {
+                  "type": "li",
+                  "options": {
+                    "location": 31
+                  },
+                  "children": [
+                    {
+                      "type": "p",
+                      "options": {
+                        "location": 31,
+                        "transparent": true
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "1-1",
+                          "options": {
+                            "location": 31
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "li",
+                  "options": {
+                    "location": 32
+                  },
+                  "children": [
+                    {
+                      "type": "p",
+                      "options": {
+                        "location": 32,
+                        "transparent": true
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "1-2",
+                          "options": {
+                            "location": 32
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "li",
+          "options": {
+            "location": 33
+          },
+          "children": [
+            {
+              "type": "p",
+              "options": {
+                "location": 33,
+                "transparent": true
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "2",
+                  "options": {
+                    "location": 33
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "li",
+          "options": {
+            "location": 34
+          },
+          "children": [
+            {
+              "type": "p",
+              "options": {
+                "location": 34,
+                "transparent": true
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "3",
+                  "options": {
+                    "location": 34
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n",
+                  "options": {
+                    "location": 35
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ul",
+              "options": {
+                "location": 35
+              },
+              "children": [
+                {
+                  "type": "li",
+                  "options": {
+                    "location": 35
+                  },
+                  "children": [
+                    {
+                      "type": "p",
+                      "options": {
+                        "location": 35,
+                        "transparent": true
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "3-1",
+                          "options": {
+                            "location": 35
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n",
+                          "options": {
+                            "location": 36
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "ul",
+                      "options": {
+                        "location": 36
+                      },
+                      "children": [
+                        {
+                          "type": "li",
+                          "options": {
+                            "location": 36
+                          },
+                          "children": [
+                            {
+                              "type": "p",
+                              "options": {
+                                "location": 36,
+                                "transparent": true
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "3-1-1",
+                                  "options": {
+                                    "location": 36
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "header",
+      "attr": {
+        "id": "連番つき箇条書き"
+      },
+      "options": {
+        "level": 2,
+        "raw_text": "連番つき箇条書き",
+        "location": 38
+      },
+      "children": [
+        {
+          "type": "text",
+          "value": "連番つき箇条書き",
+          "options": {
+            "location": 38
+          }
+        }
+      ]
+    },
+    {
+      "type": "blank",
+      "value": "\n"
+    },
+    {
+      "type": "ol",
+      "options": {
+        "location": 40
+      },
+      "children": [
+        {
+          "type": "li",
+          "options": {
+            "location": 40
+          },
+          "children": [
+            {
+              "type": "p",
+              "options": {
+                "location": 40,
+                "transparent": true
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "1",
+                  "options": {
+                    "location": 40
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n",
+                  "options": {
+                    "location": 41
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ol",
+              "options": {
+                "location": 41
+              },
+              "children": [
+                {
+                  "type": "li",
+                  "options": {
+                    "location": 41
+                  },
+                  "children": [
+                    {
+                      "type": "p",
+                      "options": {
+                        "location": 41,
+                        "transparent": true
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "1-1",
+                          "options": {
+                            "location": 41
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "li",
+                  "options": {
+                    "location": 42
+                  },
+                  "children": [
+                    {
+                      "type": "p",
+                      "options": {
+                        "location": 42,
+                        "transparent": true
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "1-2",
+                          "options": {
+                            "location": 42
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "li",
+          "options": {
+            "location": 43
+          },
+          "children": [
+            {
+              "type": "p",
+              "options": {
+                "location": 43,
+                "transparent": true
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "2",
+                  "options": {
+                    "location": 43
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "li",
+          "options": {
+            "location": 44
+          },
+          "children": [
+            {
+              "type": "p",
+              "options": {
+                "location": 44,
+                "transparent": true
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "3",
+                  "options": {
+                    "location": 44
+                  }
+                },
+                {
+                  "type": "text",
+                  "value": "\n",
+                  "options": {
+                    "location": 45
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ol",
+              "options": {
+                "location": 45
+              },
+              "children": [
+                {
+                  "type": "li",
+                  "options": {
+                    "location": 45
+                  },
+                  "children": [
+                    {
+                      "type": "p",
+                      "options": {
+                        "location": 45,
+                        "transparent": true
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "3-1",
+                          "options": {
+                            "location": 45
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "value": "\n",
+                          "options": {
+                            "location": 46
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "ol",
+                      "options": {
+                        "location": 46
+                      },
+                      "children": [
+                        {
+                          "type": "li",
+                          "options": {
+                            "location": 46
+                          },
+                          "children": [
+                            {
+                              "type": "p",
+                              "options": {
+                                "location": 46,
+                                "transparent": true
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "3-1-1",
+                                  "options": {
+                                    "location": 46
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

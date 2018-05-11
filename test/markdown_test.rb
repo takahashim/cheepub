@@ -99,4 +99,14 @@ EOB
     expected = File.read(File.join(FIXTURES_DIR, "sample.hash_ast"))
     assert_equal(expected, result)
   end
+
+  def test_convert_json
+    content = File.read(File.join(FIXTURES_DIR, "sample.md"))
+
+    md = Cheepub::Markdown.new(content)
+    json_orig = md.to_json
+    json = JSON.pretty_generate(JSON.parse(json_orig)) + "\n"
+    expected = File.read(File.join(FIXTURES_DIR, "sample.json"))
+    assert_equal(expected, json)
+  end
 end
