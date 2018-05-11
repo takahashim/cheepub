@@ -37,16 +37,21 @@ module Cheepub
       end
 
       def convert_html_element(el, opts)
-        if el.value == :ruby
+        case el.value
+        when :ruby
           str = inner(el, opts)
           "\\ruby[g]{#{str}}"
-        elsif el.value == :rt
+        when :rt
           str = inner(el, opts)
           "}{#{str}"
-        elsif el.value == :span
+        when :span
           "\\rensuji{#{inner(el, opts)}}"
-        elsif el.value == "p" && el.children.size == 1 && el.children.first.value == "br"
+        when "p"
+          if el.children.size == 1 && el.children.first.value == "br"
             "\\rblatexEmptyLine\n"
+          else
+            super
+          end
         else
           super
         end
