@@ -106,6 +106,75 @@ EOB
     assert_equal(expected, para)
   end
 
+  def test_convert_table2
+    md = Cheepub::Markdown.new(<<EOB)
+| One | Two   |
+|-----+-------|
+| my  | table |
+| is  | nice  |
+EOB
+    expected = <<-EOB
+    <table>
+  <thead>
+    <tr>
+      <th>One</th>
+      <th>Two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>my</td>
+      <td>table</td>
+    </tr>
+    <tr>
+      <td>is</td>
+      <td>nice</td>
+    </tr>
+  </tbody>
+</table>
+EOB
+    result = md.convert
+    result =~ /<body[^>]+>\n(.*)  +<\/body>/m
+    para = $1
+    assert_equal(expected, para)
+  end
+
+  def test_convert_table3
+    md = Cheepub::Markdown.new(<<EOB)
+|Markdown | Less | Pretty|
+|--- | --- | ---|
+|*Still* | `renders` | **nicely**|
+|1 | 2 | 3|
+EOB
+    expected = <<-EOB
+    <table>
+  <thead>
+    <tr>
+      <th>Markdown</th>
+      <th>Less</th>
+      <th>Pretty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Still</em></td>
+      <td><code class=\"highlighter-rouge\">renders</code></td>
+      <td><strong>nicely</strong></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+EOB
+    result = md.convert
+    result =~ /<body[^>]+>\n(.*)  +<\/body>/m
+    para = $1
+    assert_equal(expected, para)
+  end
+
   def test_convert_sample
     content = File.read(File.join(FIXTURES_DIR, "sample.md"))
 
