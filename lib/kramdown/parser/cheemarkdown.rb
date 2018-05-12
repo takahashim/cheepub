@@ -1,5 +1,11 @@
 require 'kramdown/parser/gfm'
 
+## redefine TABLE_ROW_LINE
+class Kramdown::Parser::Kramdown
+  remove_const("TABLE_ROW_LINE".to_sym)
+  TABLE_ROW_LINE = /^(?:\s*)(\|.*?\|)[ \t]*\n/
+end
+
 module Kramdown
   module Parser
     class Cheemarkdown < Kramdown::Parser::GFM
@@ -8,7 +14,6 @@ module Kramdown
         super
         @span_parsers.unshift(:ruby)
         @span_parsers.unshift(:tcy)
-        @block_parsers.delete(:table)
       end
 
       RUBY_START = /(?:\{)           ## begin

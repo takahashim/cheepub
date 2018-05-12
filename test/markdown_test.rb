@@ -70,6 +70,42 @@ EOB
     assert_equal(expected, para)
   end
 
+  def test_convert_table
+    md = Cheepub::Markdown.new(<<EOB)
+| Left align | Right align | Center align |
+|:-----------|------------:|:------------:|
+| left       | right       | center       |
+| aligned    | aligned     | aligned      |
+EOB
+    expected = <<-EOB
+    <table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Left align</th>
+      <th style="text-align: right">Right align</th>
+      <th style="text-align: center">Center align</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">left</td>
+      <td style="text-align: right">right</td>
+      <td style="text-align: center">center</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aligned</td>
+      <td style="text-align: right">aligned</td>
+      <td style="text-align: center">aligned</td>
+    </tr>
+  </tbody>
+</table>
+EOB
+    result = md.convert
+    result =~ /<body[^>]+>\n(.*)  +<\/body>/m
+    para = $1
+    assert_equal(expected, para)
+  end
+
   def test_convert_sample
     content = File.read(File.join(FIXTURES_DIR, "sample.md"))
 
