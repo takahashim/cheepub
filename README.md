@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/cheepub.svg)](https://badge.fury.io/rb/cheepub) [![Build Status](https://travis-ci.org/takahashim/cheepub.svg?branch=master)](https://travis-ci.org/takahashim/cheepub) [![Maintainability](https://api.codeclimate.com/v1/badges/15d5db3048b9067703a6/maintainability)](https://codeclimate.com/github/takahashim/cheepub/maintainability) [![Dependency Status](https://gemnasium.com/badges/github.com/takahashim/cheepub.svg)](https://gemnasium.com/github.com/takahashim/cheepub)
 
 
-Cheepub is EPUB generator from Markdown.  When you have markdown file, you can generate EPUB3 file with just one command: `cheepub sample.md`.
+Cheepub is EPUB/PDF generator from Markdown.  When you have markdown file, you can generate EPUB3 file with just one command: `cheepub sample.md`.
 
 ## Installation
 
@@ -25,6 +25,12 @@ You can add options `--title` and `--author`.
 $ cheepub --title foo --author bar source.md
 ```
 
+With `--latex` option, you can generate PDF with LaTeX.
+
+```sh
+$ cheepub --title foo --author bar --latex source.md
+```
+
 If you use front-matter section like Jekyll, you can execute without any options:
 
 ```sh
@@ -37,7 +43,7 @@ $ cheepub source.md
 * `--author AUTOR`                set author of the book
 * `--title TITLE`                 set title of the book
 * `--config CONFIG`               set configuration file
-* `--latex`                       (experimental) generate PDF (with LaTeX) file
+* `--latex`                       generate PDF (with LaTeX) file
 * `--debug`                       set debug mode
 * `-o, --out OUTFILE`             set output filename
 * `--[no-]titlepage`              add titlepage or not
@@ -89,6 +95,11 @@ In a little district west of Washington Square the streets have run crazy and br
 * titlepage: add titlepage
 
 ## History
+
+### 0.9.0
+
+- support Markdown (pipe) table
+    - cannot omit leading and trailing pipes (different with original kramdown)
 
 ### 0.8.0
 
