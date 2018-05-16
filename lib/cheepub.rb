@@ -20,7 +20,9 @@ require "cheepub/heading_parser"
 require "cheepub/heading_item"
 require "cheepub/nav"
 require "cheepub/converter/cheelatex"
+require "cheepub/converter/cheehtml"
 
 module Cheepub
   TEMPLATES_DIR = File.join(File.dirname(__FILE__), "../templates")
+  IMAGE_DIR = "images"
 end
