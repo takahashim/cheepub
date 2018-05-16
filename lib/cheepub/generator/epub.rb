@@ -46,16 +46,16 @@ module Cheepub
         end
       end
 
-      def apply_template(template_file)
-        template = File.read(File.join(Cheepub::TEMPLATES_DIR, template_file))
-        return ERB.new(template).result(binding)
-      end
-
       def make_titlepage(params)
         if params[:titlepage]
           titlepage_content = apply_template("titlepage.xhtml.erb")
           @book.add_item("titlepage.xhtml").add_raw_content(titlepage_content)
         end
+      end
+
+      def apply_template(template_file)
+        template = File.read(File.join(Cheepub::TEMPLATES_DIR, template_file))
+        return ERB.new(template).result(binding)
       end
     end
   end
