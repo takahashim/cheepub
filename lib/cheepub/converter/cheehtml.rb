@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'digest/sha2'
+require 'base64'
 
 module Cheepub
   module Converter
@@ -19,7 +20,7 @@ module Cheepub
       def replace_img_path(el)
         src = el.attr['src']
         ext = File.extname(src)
-        img_content = open(src).read
+        img_content = open(src){|f| f.read}
         img_path = image_filename(img_content, ext)
         if !@img_store[src]
           @img_store[src] = img_path
@@ -29,8 +30,9 @@ module Cheepub
       end
 
       def image_filename(content, ext)
-        hash_val = Digest::SHA256.hexdigest(content)
-        File.join(@options[:image_dir], hash_val+ext)
+        hash_val = Digest::SHA256.digest(content)
+        basename = Base64.urlsafe_encode64(hash_val)
+        File.join(@options[:image_dir], "#{basename}#{ext}")
       end
     end
   end
