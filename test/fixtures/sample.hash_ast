@@ -50,7 +50,7 @@
     :options=>{:location=>18},
     :children=>
      [{:type=>:img,
-       :attr=>{"src"=>"https://example.jp/img.jpg", "alt"=>"img"},
+       :attr=>{"src"=>"img/dummy.png", "alt"=>"img"},
        :options=>{:location=>18, :ial=>nil}}]},
    {:type=>:blank, :value=>"\n"},
    {:type=>:p,

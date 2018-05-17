@@ -15,7 +15,7 @@ class Hello
 end
 ```
 
-![img](https://example.jp/img.jpg)
+![img](img/dummy.png)
 
 ↓Markdownとして解釈するとただの`<hr />`になります。Cheepub::Contentで解釈するとページを分割します。
 

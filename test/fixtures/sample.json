@@ -169,7 +169,7 @@
         {
           "type": "img",
           "attr": {
-            "src": "https://example.jp/img.jpg",
+            "src": "img/dummy.png",
             "alt": "img"
           },
           "options": {
