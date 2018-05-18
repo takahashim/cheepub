@@ -6,7 +6,7 @@ module Cheepub
 
       def initialize(root, options)
         super
-        @image_store = ImageStore.new(@options[:image_dir])
+        @asset_store = @options[:asset_store]
       end
 
       def convert_img(el, indent)
@@ -16,7 +16,7 @@ module Cheepub
 
       def replace_img_path(el)
         src = el.attr['src']
-        img_path = @image_store.store(src)
+        img_path = @asset_store.store(src)
         el.attr['src'] = img_path
       end
     end
@@ -24,5 +24,6 @@ module Cheepub
 end
 
 class Kramdown::Converter::Html
+  attr_reader :asset_store
   prepend Cheepub::Converter::CheeHtml
 end

@@ -21,9 +21,8 @@ require "cheepub/heading_item"
 require "cheepub/nav"
 require "cheepub/converter/cheelatex"
 require "cheepub/converter/cheehtml"
-require "cheepub/image_store"
+require "cheepub/asset_store"
 
 module Cheepub
   TEMPLATES_DIR = File.join(File.dirname(__FILE__), "../templates")
-  IMAGE_DIR = "images"
 end

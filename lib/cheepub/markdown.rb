@@ -15,7 +15,6 @@ module Cheepub
                         lang: "ja",
                         title: "content",
                         cssfile: "style.css",
-                        image_dir: Cheepub::IMAGE_DIR,
                         syntax_highlighter: nil,
                         generator: "Cheepub #{Cheepub::VERSION} with kramdown #{Kramdown::VERSION}",
                         input: "cheemarkdown",

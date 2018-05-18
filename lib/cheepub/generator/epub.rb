@@ -11,6 +11,7 @@ module Cheepub
       def initialize(src, params = Hash.new)
         super
         @book = GEPUB::Book.new
+        params[:asset_store] = AssetStore.new()
       end
 
       def output_file(params)
