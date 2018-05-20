@@ -2,6 +2,7 @@ require 'yaml'
 
 module Cheepub
   class Content
+    include Enumerable
     using Cheepub::ExtHash
 
     SEPARATOR_PATTERN = /\n\n(?:\={3,}|\-{6,})\s*\n\n/m
@@ -18,20 +19,9 @@ module Cheepub
       @pages = separate_pages(@body)
     end
 
-    def converted_pages(target = :to_html)
-      @pages.map{ |page| Cheepub::Markdown.new(page).__send__(target) }
-    end
-
-    def each_content_with_filename(ext)
-      if ext == "xhtml"
-        target = :to_html
-      elsif ext == "tex"
-        target = :to_latex
-      else
-        raise Cheepub::Error, "invalid ext: #{ext}"
-      end
-      converted_pages(target).each_with_index do |page, idx|
-        yield page, "bodymatter_#{idx}.#{ext}"
+    def each
+      @pages.each do |page|
+        yield page
       end
     end
 

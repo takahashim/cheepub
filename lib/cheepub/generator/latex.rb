@@ -41,7 +41,9 @@ module Cheepub
         if params[:documentClass]
           @maker.document_class = params[:documentClass]
         end
-        @content.each_content_with_filename("tex") do |content, filename|
+        @content.each_with_index do |file, idx|
+          content = Cheepub::Markdown.new(page).to_latex
+          filename = "bodymatter_#{idx}.tex"
           @maker.add_item(filename, content)
         end
       end

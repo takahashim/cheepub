@@ -28,7 +28,11 @@ module Cheepub
     end
 
     def make_file_list
-      @content.to_enum(:each_content_with_filename, "xhtml").map{|html,filename| [filename, html]}.to_a
+      @content.map.with_index do |file, idx|
+        html = Cheepub::Markdown.new(file).to_html
+        filename = "bodymatter_#{idx}.xhtml"
+        [filename, html]
+      end.to_a
     end
   end
 end

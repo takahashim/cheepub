@@ -41,7 +41,9 @@ module Cheepub
           make_titlepage(params)
           nav = Cheepub::Nav.new(@content)
           @book.add_item('nav.xhtml', nil,nil,'properties'=>['nav']).add_raw_content(nav.to_html)
-          @content.each_content_with_filename("xhtml") do |html, filename|
+          @content.each_with_index do |file, idx|
+            html = Cheepub::Markdown.new(page).to_html
+            filename = "bodymatter_#{idx}.xhtml"
             @book.add_item(filename).add_raw_content(html)
           end
         end
