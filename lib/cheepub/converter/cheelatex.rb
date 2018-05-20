@@ -14,6 +14,25 @@ module Cheepub
         end
       end
 
+      def convert_standalone_image(el, opts, img)
+        "#{img}\n"
+      end
+
+      def convert_img(el, opts)
+        line = el.options[:location]
+        angle = @options[:page_direction] == "rtl" ? 90 : 0
+        if el.attr['src'] =~ /^(https?|ftps?):\/\//
+          warning("Cannot include non-local image#{line ? " (line #{line})" : ''}")
+          ''
+        elsif !el.attr['src'].empty?
+          @data[:packages] << 'graphicx'
+          "#{latex_link_target(el)}\\includegraphics[angle=#{angle}]{#{el.attr['src']}}"
+        else
+          warning("Cannot include image with empty path#{line ? " (line #{line})" : ''}")
+          ''
+        end
+      end
+
       def convert_codeblock(el, opts)
         show_whitespace = el.attr['class'].to_s =~ /\bshow-whitespaces\b/
         lang = extract_code_language(el.attr)
