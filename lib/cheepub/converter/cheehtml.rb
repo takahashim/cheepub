@@ -16,7 +16,7 @@ module Cheepub
 
       def replace_img_path(el)
         src = el.attr['src']
-        img_path = @asset_store.store(src)
+        img_path = @asset_store.store(src, Cheepub::IMAGE_DIR)
         el.attr['src'] = img_path
       end
     end
