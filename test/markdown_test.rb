@@ -178,10 +178,12 @@ EOB
   def test_convert_sample
     content = File.read(File.join(FIXTURES_DIR, "sample.md"))
     Dir.chdir(FIXTURES_DIR) do
-      md = Cheepub::Markdown.new(content)
-      result = md.convert
-      expected = File.read(File.join(FIXTURES_DIR, "sample.html")).sub("X.X.X", Cheepub::VERSION).sub("Y.Y.Y", Kramdown::VERSION)
-      assert_equal(expected, result)
+      Dir.mktmpdir do |tmpdir|
+        md = Cheepub::Markdown.new(content, asset_store: Cheepub::AssetStore.new(tmpdir))
+        result = md.to_html
+        expected = File.read(File.join(FIXTURES_DIR, "sample.html")).sub("X.X.X", Cheepub::VERSION).sub("Y.Y.Y", Kramdown::VERSION)
+        assert_equal(expected, result)
+      end
     end
   end
 
