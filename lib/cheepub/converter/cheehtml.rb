@@ -1,5 +1,3 @@
-require 'open-uri'
-
 module Cheepub
   module Converter
     module CheeHtml
@@ -10,7 +8,9 @@ module Cheepub
       end
 
       def convert_img(el, indent)
-        replace_img_path(el)
+        if !@options[:ignore_images]
+          replace_img_path(el)
+        end
         super
       end
 

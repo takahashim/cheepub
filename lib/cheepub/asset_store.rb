@@ -3,17 +3,23 @@ require 'base64'
 require 'fileutils'
 require 'tmpdir'
 require 'pathname'
+require 'open-uri'
 
 module Cheepub
   class AssetStore
-    def initialize(asset_dir)
+    def initialize(asset_dir, base_dir)
       @store = {}
       @asset_dir = Pathname.new(asset_dir)
+      @base_dir = Pathname.new(base_dir || ".")
     end
 
     def store(src, dir)
       ext = File.extname(src)
-      img_content = open(src){|f| f.read}
+      if src =~ /^(https?:|\/)/
+        img_content = open(src){|f| f.read}
+      else
+        img_content = open(File.join(@base_dir, src)){|f| f.read}
+      end
       img_path = asset_file_path(img_content, dir, ext)
       if !@store[src]
         @store[src] = img_path
@@ -33,6 +39,14 @@ module Cheepub
 
     def []=(key,val)
       @store[key] = val
+    end
+
+    def each_relpath_and_content(&proc)
+      @store.each do |key, val|
+        path = val.relative_path_from(@asset_dir)
+        content = File.read(val)
+        yield path.to_s, content
+      end
     end
 
     def asset_file_path(content, dir, ext)

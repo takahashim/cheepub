@@ -179,7 +179,7 @@ EOB
     content = File.read(File.join(FIXTURES_DIR, "sample.md"))
     Dir.chdir(FIXTURES_DIR) do
       Dir.mktmpdir do |tmpdir|
-        md = Cheepub::Markdown.new(content, asset_store: Cheepub::AssetStore.new(tmpdir))
+        md = Cheepub::Markdown.new(content, asset_store: Cheepub::AssetStore.new(tmpdir, "."))
         result = md.to_html
         expected = File.read(File.join(FIXTURES_DIR, "sample.html")).sub("X.X.X", Cheepub::VERSION).sub("Y.Y.Y", Kramdown::VERSION)
         assert_equal(expected, result)

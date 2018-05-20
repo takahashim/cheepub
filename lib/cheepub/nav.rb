@@ -29,7 +29,7 @@ module Cheepub
 
     def make_file_list
       @content.map.with_index do |file, idx|
-        html = Cheepub::Markdown.new(file).to_html
+        html = Cheepub::Markdown.new(file, ignore_images: true).to_html
         filename = "bodymatter_#{idx}.xhtml"
         [filename, html]
       end.to_a

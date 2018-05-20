@@ -11,7 +11,8 @@ module Cheepub
       def initialize(src, params = Hash.new)
         super
         @book = GEPUB::Book.new
-        params[:asset_store] = AssetStore.new(Dir.mktmpdir("cheepub"))
+        @asset_store = AssetStore.new(Dir.mktmpdir("cheepub"), @src ? File.dirname(@src) : nil)
+        params[:asset_store] = @asset_store
       end
 
       def output_file(params)
@@ -34,7 +35,7 @@ module Cheepub
         ## book.date= params[:date] || Time.now
         @book.add_date(params[:date] || Time.now, nil)
         @book.lastmodified = params[:lastModified] || Time.now
-        @book.page_progression_direction = params[:pageDirection]
+        @book.page_progression_direction = params[:pageDirection] || "ltr"
         style_content = apply_template("style.css.erb")
         @book.add_item("style.css").add_raw_content(style_content)
         @book.ordered do
@@ -42,10 +43,13 @@ module Cheepub
           nav = Cheepub::Nav.new(@content)
           @book.add_item('nav.xhtml', nil,nil,'properties'=>['nav']).add_raw_content(nav.to_html)
           @content.each_with_index do |file, idx|
-            html = Cheepub::Markdown.new(page).to_html
+            html = Cheepub::Markdown.new(file, asset_store: @asset_store).to_html
             filename = "bodymatter_#{idx}.xhtml"
             @book.add_item(filename).add_raw_content(html)
           end
+        end
+        @asset_store.each_relpath_and_content do |path, content|
+          @book.add_item(path).add_raw_content(content)
         end
       end
 
