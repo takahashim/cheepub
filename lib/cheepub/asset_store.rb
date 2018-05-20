@@ -51,7 +51,7 @@ module Cheepub
 
     def asset_file_path(content, dir, ext)
       hash_val = Digest::SHA256.digest(content)
-      basename = Base64.urlsafe_encode64(hash_val)
+      basename = Base64.urlsafe_encode64(hash_val).gsub(/=/,"")
       path = @asset_dir + dir + "#{basename}#{ext}"
       path
     end
