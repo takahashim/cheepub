@@ -5,9 +5,9 @@ require 'tmpdir'
 
 module Cheepub
   class AssetStore
-    def initialize(asset_dir = nil)
+    def initialize(asset_dir)
       @store = {}
-      @asset_dir = asset_dir || Dir.mktmpdir("cheepub")
+      @asset_dir = asset_dir
     end
 
     def store(src)
