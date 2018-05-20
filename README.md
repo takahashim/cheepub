@@ -96,6 +96,10 @@ In a little district west of Washington Square the streets have run crazy and br
 
 ## History
 
+### 0.10.0
+
+- support Images in EPUB
+
 ### 0.9.0
 
 - support Markdown (pipe) table
