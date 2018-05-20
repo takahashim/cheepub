@@ -25,4 +25,5 @@ require "cheepub/asset_store"
 
 module Cheepub
   TEMPLATES_DIR = File.join(File.dirname(__FILE__), "../templates")
+  IMAGE_DIR = "images"
 end
