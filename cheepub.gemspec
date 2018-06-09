@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "oga", "~> 2.15"
   spec.add_dependency "coderay"
   spec.add_dependency "rouge"
-  spec.add_dependency "rb_latex", "~> 0.3.0"
+  spec.add_dependency "rb_latex", "~> 0.4.1"
 
   spec.add_development_dependency "rufo", "~> 0.3"
   spec.add_development_dependency "bundler", "~> 1.16"
