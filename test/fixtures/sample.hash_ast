@@ -44,7 +44,7 @@
      "    p \"hello!\"\n" +
      "  end\n" +
      "end\n",
-    :options=>{:location=>9, :lang=>"ruby"}},
+    :options=>{:location=>9, :fenced=>true, :lang=>"ruby"}},
    {:type=>:blank, :value=>"\n"},
    {:type=>:p,
     :options=>{:location=>18},

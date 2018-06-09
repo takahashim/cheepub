@@ -153,6 +153,7 @@
       "value": "class Hello\n  # say hello\n  def hello\n    p \"hello!\"\n  end\nend\n",
       "options": {
         "location": 9,
+        "fenced": true,
         "lang": "ruby"
       }
     },
