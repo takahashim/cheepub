@@ -28,7 +28,7 @@ module Cheepub
         parse_creator(params[:creator])
         ##@maker.language = params[:language] || 'ja'
         @maker.publisher = params[:publisher] if params[:publisher]
-        @maker.date= params[:date] || Time.now
+        @maker.date = params[:date] || Time.now
         @maker.lastmodified = params[:lastModified] || Time.now
         @maker.page_progression_direction = params[:pageDirection]
         if params.key?(:latexCommand)
@@ -40,6 +40,12 @@ module Cheepub
         @maker.debug = params[:debug]
         if params[:documentClass]
           @maker.document_class = params[:documentClass]
+        end
+        if params[:titlepage]
+          @maker.titlepage = params[:titlepage]
+        end
+        if params[:colophon]
+          @maker.colophons = params[:colophon]
         end
         @content.each_with_index do |file, idx|
           content = Cheepub::Markdown.new(file, page_direction: params[:pageDirection]).to_latex
