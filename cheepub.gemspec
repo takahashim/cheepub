@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["takahashim"]
   spec.email         = ["maki@rubycolor.org"]
 
-  spec.summary       = "Simple EPUB generator from Markdown"
-  spec.description   = %q{Simple EPUB generator from Markdown. Inspired by denden converter}
+  spec.summary       = "Simple EPUB/PDF generator from Markdown"
+  spec.description   = %q{Simple EPUB/PDF generator from Markdown. Inspired by denden converter}
   spec.homepage      = "https://github.com/takahashim/cheepub"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
