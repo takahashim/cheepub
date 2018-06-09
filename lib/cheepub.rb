@@ -22,6 +22,7 @@ require "cheepub/nav"
 require "cheepub/converter/cheelatex"
 require "cheepub/converter/cheehtml"
 require "cheepub/asset_store"
+require "cheepub/i18n"
 
 module Cheepub
   TEMPLATES_DIR = File.join(File.dirname(__FILE__), "../templates")
