@@ -45,7 +45,13 @@ module Cheepub
           @maker.titlepage = params[:titlepage]
         end
         if params[:colophon]
-          @maker.colophons = params[:colophon]
+          @maker.colophon = params[:colophon]
+        end
+        if params[:colophon_before]
+          @maker.colophon_before = params[:colophon_before].gsub(/\n/m, "\\par ") + "\\vspace{5mm} \\par\n"
+        end
+        if params[:colophon_after]
+          @maker.colophon_after = params[:colophon_after].gsub(/\n/m, "\\par ")
         end
         @content.each_with_index do |file, idx|
           content = Cheepub::Markdown.new(file, page_direction: params[:pageDirection]).to_latex
