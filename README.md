@@ -93,6 +93,11 @@ In a little district west of Washington Square the streets have run crazy and br
 * lastModified: last modified date-time
 * pageDirection: `ltr` (horizontal) or `rtl` (vertical)
 * titlepage: add titlepage
+* colophone: add colophon page
+* colophone_before, colophone_after: some notes before/after colophon table
+* (LaTeX) latexCommand: command name of LaTeX (`uplatex` or `lualatex`)
+* (LaTeX) documentClass: document class and options. (ex. `["jlreq", "tate,book,a4paper,twocolumn,openany"]`)
+
 
 ## History
 
