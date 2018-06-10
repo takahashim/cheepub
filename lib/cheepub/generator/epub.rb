@@ -47,6 +47,7 @@ module Cheepub
             filename = "bodymatter_#{idx}.xhtml"
             @book.add_item(filename).add_raw_content(html)
           end
+          make_colophon(params)
         end
         @asset_store.each_relpath_and_content do |path, content|
           @book.add_item(path).add_raw_content(content)
@@ -57,6 +58,14 @@ module Cheepub
         if params[:titlepage]
           titlepage_content = apply_template("titlepage.xhtml.erb")
           @book.add_item("titlepage.xhtml").add_raw_content(titlepage_content)
+        end
+      end
+
+      def make_colophon(params)
+        if params[:colophon]
+          @colophon = params[:colophon]
+          content = apply_template("colophon.xhtml.erb")
+          @book.add_item("colophon.xhtml").add_raw_content(content)
         end
       end
 
