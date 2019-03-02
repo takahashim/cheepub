@@ -54,13 +54,16 @@
       </div>
       <div class="titlepage-title-after"></div>
       <div class="colophon-table-before">
+        <p><%= @colophon_before.gsub(/\n/m, "<br />") %></p>
       </div>
       <table class="colophon-table">
         <% @colophon.each do |key, val| %>
+        <% val = val.join("<br />") if val.kind_of?(Array) %>
         <tr><th><%= key %></th><td><%= val %></td></tr>
         <% end %>
       </table>
       <div class="colophon-table-after">
+        <p><%= @colophon_after.gsub(/\n/m, "<br />") %></p>
       </div>
     </section>
   </body>

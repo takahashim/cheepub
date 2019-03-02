@@ -64,6 +64,8 @@ module Cheepub
       def make_colophon(params)
         if params[:colophon]
           @colophon = params[:colophon]
+          @colophon_before = params[:colophon_before] || ""
+          @colophon_after = params[:colophon_after] || ""
           content = apply_template("colophon.xhtml.erb")
           @book.add_item("colophon.xhtml").add_raw_content(content)
         end
