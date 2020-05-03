@@ -1,6 +1,8 @@
 # Cheepub
 
-[![Gem Version](https://badge.fury.io/rb/cheepub.svg)](https://badge.fury.io/rb/cheepub) [![Build Status](https://travis-ci.org/takahashim/cheepub.svg?branch=master)](https://travis-ci.org/takahashim/cheepub) [![Maintainability](https://api.codeclimate.com/v1/badges/15d5db3048b9067703a6/maintainability)](https://codeclimate.com/github/takahashim/cheepub/maintainability) [![Dependency Status](https://gemnasium.com/badges/github.com/takahashim/cheepub.svg)](https://gemnasium.com/github.com/takahashim/cheepub)
+[![Gem Version](https://badge.fury.io/rb/cheepub.svg)](https://badge.fury.io/rb/cheepub)
+[![Build Status](https://github.com/takahashim/cheepub/workflows/Ruby/badge.svg)](https://github.com/takahashim/cheepub/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/15d5db3048b9067703a6/maintainability)](https://codeclimate.com/github/takahashim/cheepub/maintainability)
 
 
 Cheepub is EPUB/PDF generator from Markdown.  When you have markdown file, you can generate EPUB3 file with just one command: `cheepub sample.md`.
