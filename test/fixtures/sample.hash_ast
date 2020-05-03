@@ -4,7 +4,8 @@
    :location=>1,
    :options=>{},
    :abbrev_defs=>{},
-   :abbrev_attr=>{}},
+   :abbrev_attr=>{},
+   :footnote_count=>0},
  :children=>
   [{:type=>:header,
     :attr=>{"id"=>"テスト"},

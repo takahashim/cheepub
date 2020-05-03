@@ -158,7 +158,7 @@ EOB
   <tbody>
     <tr>
       <td><em>Still</em></td>
-      <td><code class=\"highlighter-rouge\">renders</code></td>
+      <td><code>renders</code></td>
       <td><strong>nicely</strong></td>
     </tr>
     <tr>
