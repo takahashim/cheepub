@@ -64,9 +64,9 @@ language: ja
 hello, world!
 EOB
     content = Cheepub::Content.new(src)
-    expected_header = {title: "test",
-                       author: "foo",
-                       language: "ja"}
+    expected_header = { title: "test",
+                        author: "foo",
+                        language: "ja" }
     expected_body = <<-EOB
 # hello
 
