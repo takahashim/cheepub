@@ -101,6 +101,10 @@ In a little district west of Washington Square the streets have run crazy and br
 
 ## History
 
+### 0.13.0
+
+- update `kramdown`, `gepub` and `rb_latex`
+
 ### 0.12.0
 
 - support colophon_(before|after) in EPUB
