@@ -1,4 +1,4 @@
-require 'kramdown/parser/gfm'
+require 'kramdown-parser-gfm'
 
 ## redefine TABLE_ROW_LINE
 class Kramdown::Parser::Kramdown
