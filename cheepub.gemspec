@@ -20,13 +20,13 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "gepub", "~> 1.0.2"
-  spec.add_dependency "kramdown", "~> 2.1.0"
+  spec.add_dependency "kramdown"
   spec.add_dependency "kramdown-parser-gfm", "~> 1.0.1"
   spec.add_dependency "clamp", "~> 1.2"
   spec.add_dependency "oga", "~> 2.15"
   spec.add_dependency "coderay"
   spec.add_dependency "rouge"
-  spec.add_dependency "rb_latex", "~> 0.6"
+  spec.add_dependency "rb_latex"
 
   spec.add_development_dependency "rufo"
   spec.add_development_dependency "bundler"
