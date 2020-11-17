@@ -7,7 +7,7 @@ module Cheepub
     TCY_PATTERN = /\^([\u0020-\u005d\u005f\u007e]+)\^/ ## \u005e is "^"
 
     def self.parse(filename, **params)
-      Markdown.new(File.read(filename), params)
+      Markdown.new(File.read(filename), **params)
     end
 
     def initialize(text, **params)

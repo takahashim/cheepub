@@ -21,7 +21,7 @@ module Cheepub
       end
 
       def add_creator(name, role)
-        @book.add_creator(name, nil, role)
+        @book.add_creator(name, nil, role: role)
       end
 
       def apply_params(params)
