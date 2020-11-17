@@ -103,6 +103,10 @@ In a little district west of Washington Square the streets have run crazy and br
 
 ## History
 
+### 0.14.1
+
+- fix some warnings in Ruby
+
 ### 0.14.0
 
 - update `kramdown`
