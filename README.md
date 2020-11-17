@@ -103,6 +103,10 @@ In a little district west of Washington Square the streets have run crazy and br
 
 ## History
 
+### 0.14.0
+
+- update `kramdown`
+
 ### 0.13.0
 
 - update `kramdown`, `gepub` and `rb_latex`
