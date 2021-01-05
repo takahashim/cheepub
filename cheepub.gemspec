@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "kramdown"
   spec.add_dependency "kramdown-parser-gfm", "~> 1.0.1"
   spec.add_dependency "clamp", "~> 1.2"
-  spec.add_dependency "oga", "~> 2.15"
+  spec.add_dependency "oga", ">= 2.15", "< 4.0"
   spec.add_dependency "coderay"
   spec.add_dependency "rouge"
   spec.add_dependency "rb_latex"
