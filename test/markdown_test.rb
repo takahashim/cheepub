@@ -54,7 +54,7 @@ EOB
   def test_convert_footnote
     md = Cheepub::Markdown.new("テスト[^1]です。\n\n[^1]: テストの脚注です。\n")
     expected = <<-EOB
-    <p>テスト<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>です。</p>
+    <p>テスト<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>です。</p>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
