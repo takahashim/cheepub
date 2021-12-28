@@ -19,11 +19,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "gepub", "~> 1.0.2"
+  spec.add_dependency "gepub"
   spec.add_dependency "kramdown"
-  spec.add_dependency "kramdown-parser-gfm", ">= 1.0.1", "< 1.2.0"
-  spec.add_dependency "clamp", "~> 1.2"
-  spec.add_dependency "oga", ">= 2.15", "< 4.0"
+  spec.add_dependency "kramdown-parser-gfm"
+  spec.add_dependency "clamp"
+  spec.add_dependency "oga"
   spec.add_dependency "coderay"
   spec.add_dependency "rouge"
   spec.add_dependency "rb_latex"
